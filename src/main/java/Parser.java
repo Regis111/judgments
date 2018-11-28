@@ -10,5 +10,5 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.reflect.TypeToken;
 
 public class Parser {
-    
+
 }
