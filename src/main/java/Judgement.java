@@ -7,53 +7,59 @@ import java.util.List;
 public class Judgement {
 
     private int id;
-    private CourtType type;
-    private List<String> courtCases;
-    private JudgementType judgementType;
+    private CourtType courtType;
+    private List<CourtCase> courtCases;
+    private JudgementType judgmentType;
     private List<Judge> judges;
-    private JudgementSource source;
-    private List<String> CourtReporters;
+    private Source source;
+    private List<String> courtReporters;
     private String decision;
     private String summary;
     private String textContent;
     private List<String> legalBases;
-    private List<ReferencedRegulation> regulations;
+    private List<ReferencedRegulation> referencedRegulations;
     private List<String> keywords;
     private List<ReferencedCourtCase> referencedCourtCases;
-    private Calendar receiptDate;
+    private String receiptDate;
     private String meansOfAppeal;
     private String judgmentResult;
-    private List<String> lowerCourtJudgements;
+    private List<String> lowerCourtJudgments;
     private PersonnelType personnelType; //Sąd najwyższy
-    private String judgementForm;
     @SerializedName("division.id")
-    private int DivisionInt;
-    List<DissentingOpinion> dissentingOpinions; //Trybunał konstytucyjny
+    private int divisionID;
+    private List<Chamber> chambers;
+    private List<DissentingOpinion> dissentingOpinions; //Trybunał konstytucyjny
 
-
-
-    /*public CourtType getType() {
-        return type;
+    public int getId() {
+        return id;
     }
 
-    public void setType(CourtType type) {
-        this.type = type;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public List<CourtCase> getCasesList() {
-        return casesList;
+    public CourtType getCourtType() {
+        return courtType;
     }
 
-    public void setCasesList(List<CourtCase> casesList) {
-        this.casesList = casesList;
+    public void setCourtType(CourtType courtType) {
+        this.courtType = courtType;
     }
 
-    public JudgementType getJudgementType() {
-        return judgementType;
+    public List<CourtCase> getCourtCases() {
+        return courtCases;
     }
 
-    public void setJudgementType(JudgementType judgementType) {
-        this.judgementType = judgementType;
+    public void setCourtCases(List<CourtCase> courtCases) {
+        this.courtCases = courtCases;
+    }
+
+    public JudgementType getJudgmentType() {
+        return judgmentType;
+    }
+
+    public void setJudgmentType(JudgementType judgmentType) {
+        this.judgmentType = judgmentType;
     }
 
     public List<Judge> getJudges() {
@@ -64,20 +70,20 @@ public class Judgement {
         this.judges = judges;
     }
 
-    public JudgementSource getSource() {
+    public Source getSource() {
         return source;
     }
 
-    public void setSource(JudgementSource source) {
+    public void setSource(Source source) {
         this.source = source;
     }
 
-    public List<CourtReporter> getReporterList() {
-        return reporterList;
+    public List<String> getCourtReporters() {
+        return courtReporters;
     }
 
-    public void setReporterList(List<CourtReporter> reporterList) {
-        this.reporterList = reporterList;
+    public void setCourtReporters(List<String> courtReporters) {
+        this.courtReporters = courtReporters;
     }
 
     public String getDecision() {
@@ -112,12 +118,19 @@ public class Judgement {
         this.legalBases = legalBases;
     }
 
-    public List<referencedRegulations> getRegulationsList() {
-        return regulationsList;
+    public List<ReferencedRegulation> getReferencedRegulations() {
+        return referencedRegulations;
     }
 
-    public void setRegulationsList(List<referencedRegulations> regulationsList) {
-        this.regulationsList = regulationsList;
+    public void setReferencedRegulations(List<ReferencedRegulation> referencedRegulations) {
+        this.referencedRegulations = referencedRegulations;
     }
-    */
+
+    public String getMeansOfAppeal() {
+        return meansOfAppeal;
+    }
+
+    public void setMeansOfAppeal(String meansOfAppeal) {
+        this.meansOfAppeal = meansOfAppeal;
+    }
 }

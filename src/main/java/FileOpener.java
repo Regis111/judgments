@@ -15,7 +15,9 @@ public class FileOpener {
         Path dir = Paths.get(JsonDirectory);
         return Files.list(dir).collect(Collectors.toCollection(ArrayList::new));
     }
-
+    /*
+    Zwraca listę ścieżek w postaci stringów
+     */
     public ArrayList<String> fromPathListToStringList(String JsonDirectory) throws IOException{
         ArrayList<String> StringPaths = new ArrayList<>();
         ArrayList<Path> PathPaths = this.getJsonList(JsonDirectory);
@@ -29,11 +31,21 @@ public class FileOpener {
     Zwraca zawartość plików JSON w postaci listy stringów
      */
     public ArrayList<String> getFiles(String DirPath) throws IOException {
-        ArrayList<String> FileContent = new ArrayList<>();
-        ArrayList<Path> Paths = getJsonList(DirPath);
-        for (Path path : Paths){
-            FileContent.add(new String(Files.readAllBytes(path),"UTF-8"));
+        ArrayList<String> fileContent = new ArrayList<>();
+        ArrayList<Path> paths = getJsonList(DirPath);
+        for (Path path : paths){
+            String file = new String(Files.readAllBytes(path),"UTF-8");
+            file = removeMetaData(file);
+            fileContent.add(file);
         }
-        return FileContent;
+        return fileContent;
+    }
+    /*
+    Usuwa meta dane z pliku JSON
+     */
+    public String removeMetaData(String file){
+        int beg = file.indexOf("items") + 7;
+        int end = file.indexOf("queryTemplate") - 2;
+        return file.substring(beg,end);
     }
 }
