@@ -1,5 +1,5 @@
 package data.JudgementAttributes;
 
 public class CourtCase {
-    String caseNumber;
+    public String caseNumber;
 }

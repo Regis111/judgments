@@ -8,4 +8,23 @@ public class ReferencedRegulation {
     int journalEntry;
     String text;
 
+    public String getJournalTitle() {
+        return journalTitle;
+    }
+
+    public int getJournalYear() {
+        return journalYear;
+    }
+
+    public int getJournalNo() {
+        return journalNo;
+    }
+
+    public int getJournalEntry() {
+        return journalEntry;
+    }
+
+    public String getText() {
+        return text;
+    }
 }

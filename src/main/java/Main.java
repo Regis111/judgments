@@ -1,6 +1,5 @@
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
@@ -10,7 +9,11 @@ public class Main {
             FileOpener x = new FileOpener();
             Parser parser = new Parser();
             ArrayList<String> content = x.getFiles("C:\\JSON");
-            List<List<Judgement>> judgements = parser.parseAllFiles(content);
+            HashMap<String,Judgement> map = parser.parseToMap(content);
+            JudgementsData data = new JudgementsData(map);
+            //System.out.println(Arrays.toString(data.monthDistribution()));
+            System.out.println(data.judgesPerJudgement());
+            //System.out.println(map.get("I UK 15/04"));
         }catch (IOException e){
             System.out.println("coś nie wyszło");
         }
