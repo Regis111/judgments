@@ -34,92 +34,103 @@ public class Judgement {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public CourtType getCourtType() {
         return courtType;
+    }
+
+    public void setCourtType(CourtType courtType) {
+        this.courtType = courtType;
     }
 
     public List<CourtCase> getCourtCases() {
         return courtCases;
     }
 
+    public void setCourtCases(List<CourtCase> courtCases) {
+        this.courtCases = courtCases;
+    }
+
     public JudgementType getJudgmentType() {
         return judgmentType;
+    }
+
+    public void setJudgmentType(JudgementType judgmentType) {
+        this.judgmentType = judgmentType;
     }
 
     public List<Judge> getJudges() {
         return judges;
     }
 
+    public void setJudges(List<Judge> judges) {
+        this.judges = judges;
+    }
+
     public Source getSource() {
         return source;
+    }
+
+    public void setSource(Source source) {
+        this.source = source;
     }
 
     public List<String> getCourtReporters() {
         return courtReporters;
     }
 
+    public void setCourtReporters(List<String> courtReporters) {
+        this.courtReporters = courtReporters;
+    }
+
     public String getDecision() {
         return decision;
+    }
+
+    public void setDecision(String decision) {
+        this.decision = decision;
     }
 
     public String getSummary() {
         return summary;
     }
 
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
     public String getTextContent() {
         return textContent;
+    }
+
+    public void setTextContent(String textContent) {
+        this.textContent = textContent;
     }
 
     public List<String> getLegalBases() {
         return legalBases;
     }
 
+    public void setLegalBases(List<String> legalBases) {
+        this.legalBases = legalBases;
+    }
+
     public List<ReferencedRegulation> getReferencedRegulations() {
         return referencedRegulations;
+    }
+
+    public void setReferencedRegulations(List<ReferencedRegulation> referencedRegulations) {
+        this.referencedRegulations = referencedRegulations;
     }
 
     public String getMeansOfAppeal() {
         return meansOfAppeal;
     }
 
-    public List<String> getKeywords() {
-        return keywords;
+    public void setMeansOfAppeal(String meansOfAppeal) {
+        this.meansOfAppeal = meansOfAppeal;
     }
-
-    public List<ReferencedCourtCase> getReferencedCourtCases() {
-        return referencedCourtCases;
-    }
-
-    public String getReceiptDate() {
-        return receiptDate;
-    }
-
-    public String getJudgmentResult() {
-        return judgmentResult;
-    }
-
-    public List<String> getLowerCourtJudgments() {
-        return lowerCourtJudgments;
-    }
-
-    public PersonnelType getPersonnelType() {
-        return personnelType;
-    }
-
-    public int getDivisionID() {
-        return divisionID;
-    }
-
-    public List<Chamber> getChambers() {
-        return chambers;
-    }
-
-    public List<DissentingOpinion> getDissentingOpinions() {
-        return dissentingOpinions;
-    }
-
-    public String toString(){
-        return this.getCourtCases().get(0).caseNumber;
-    }
-
 }
