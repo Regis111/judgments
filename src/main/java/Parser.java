@@ -5,16 +5,14 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
+import Attributes.CourtCase;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.reflect.TypeToken;
-import data.JudgementAttributes.Judge;
+
 
 public class Parser {
     public ArrayList<Judgement> parse(String file) throws IOException{
@@ -29,5 +27,16 @@ public class Parser {
         }
 
         return allJudgments;
+    }
+    public HashMap<String,Judgement> parseToMap(ArrayList<String> files) throws IOException{
+        HashMap<String,Judgement> map = new HashMap<>();
+        List<List<Judgement>> judgments = parseAllFiles(files);
+        for(List<Judgement> list : judgments){
+            for(Judgement judgement: list){
+                for(CourtCase courtCase : judgement.getCourtCases())
+                    map.put(courtCase.getCaseNumber(),judgement);
+            }
+        }
+        return map;
     }
 }

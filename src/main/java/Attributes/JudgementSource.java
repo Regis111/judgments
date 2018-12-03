@@ -1,4 +1,4 @@
-package data.JudgementAttributes;
+package Attributes;
 
 public class JudgementSource {
 }

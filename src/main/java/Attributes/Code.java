@@ -1,4 +1,4 @@
-package data.JudgementAttributes;
+package Attributes;
 
 public enum Code {
     COMMON_COURT,

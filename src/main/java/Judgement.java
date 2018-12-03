@@ -1,7 +1,6 @@
+import Attributes.*;
 import com.google.gson.annotations.SerializedName;
-import data.JudgementAttributes.*;
 
-import java.util.Calendar;
 import java.util.List;
 
 public class Judgement {
