@@ -2,6 +2,10 @@ import Attributes.CourtType;
 import Attributes.Judge;
 import Attributes.ReferencedRegulation;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.safety.Whitelist;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -11,31 +15,31 @@ public class JudgementsData {
 
     HashMap<String,Judgement> judgementHashMap;
     //II i IV
-    public void getMetrics(String signature){
-        Judgement judgement = judgementHashMap.get(signature);
-        System.out.println("Sygnatura orzeczenia: " + signature);
-        System.out.println("Data wydania orzeczenia: " + judgement.getSource().getPublicationDate());
-        System.out.println("Rodzaj sądu: " + judgement.getCourtType());
-        System.out.println("Sędziowie: " + judgement.getJudges().stream().map(judge -> judge.getName()).collect(Collectors.toList()));
+    public void getMetrics(List<String> signatures){
+        for(String signature : signatures){
+            Judgement judgement = judgementHashMap.get(signature);
+            System.out.println("Sygnatura orzeczenia: " + signature);
+            System.out.println("Data wydania orzeczenia: " + judgement.getSource().getPublicationDate());
+            System.out.println("Rodzaj sądu: " + judgement.getCourtType());
+            System.out.println("Sędziowie: " + judgement.getJudges().stream().map(judge -> judge.getName()).collect(Collectors.toList()));
+        }
     }
 
     public JudgementsData(HashMap<String,Judgement> map){
         this.judgementHashMap = map;
     }
     //III
-    public String getReasons(Judgement judgement){
+    public String getReasons(String signature){
+        Judgement judgement = judgementHashMap.get(signature);
         int index = judgement.getTextContent().indexOf("UZASADNIENIE");
-        return judgement.getTextContent().substring(index);
+        return Jsoup.parse(judgement.getTextContent().substring(index)).toString().replaceAll("\\<[^>]*>","");
     }
     //V
-    public int numberOfJudgementsOfJudge(Judge judge){
-        int i = 0;
-        for(Judgement judgement : judgementHashMap.values()){
-            if(judgement.getJudges().contains(judge)){
-                i++;
-            }
-        }
-        return i;
+    public int numberOfJudgementsOfJudge(String firstname,String lastname){
+        String judgeName = firstname + lastname;
+        return (int)judgementHashMap.values().stream().map(Judgement::getJudges)
+                .flatMap(List::stream)
+                .filter(judge -> judge.getName().equals(judgeName)).count();
     }
     //VI
     public List<Judge> top10judges(){
@@ -117,5 +121,4 @@ public class JudgementsData {
         }
         return judges/judgements.size();
     }
-
 }
