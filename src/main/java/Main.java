@@ -15,15 +15,19 @@ public class Main {
             ArrayList<String> content = x.getFiles("C:\\JSON");
             HashMap<String,Judgement> map = parser.parseToMap(content);
             JudgementsData data = new JudgementsData(map);
-            List<String> signatures = new ArrayList<>();
-            signatures.add("VIII Ka 283/14");
-            data.getMetrics(signatures);
             System.out.println(Arrays.toString(data.monthDistribution()));
             System.out.println(data.judgesPerJudgement());
             System.out.println(data.top10judges().stream().map(judge -> judge.getName()).collect(Collectors.toList()));
             System.out.println(data.top10laws());
             System.out.println(data.courtTypeDistribution());
             System.out.println(data.getReasons("VIII Ka 283/14"));
+            CommandInterpreter interpreter = new CommandInterpreter();
+            System.out.println(interpreter.commandInterpreter("courtTypeDistribution",data));
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    Terminal terminal = new Terminal(data);
+                }
+            });
         }catch (IOException e){
             System.out.println("coś nie wyszło");
             return;

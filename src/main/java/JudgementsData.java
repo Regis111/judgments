@@ -15,14 +15,16 @@ public class JudgementsData {
 
     HashMap<String,Judgement> judgementHashMap;
     //II i IV
-    public void getMetrics(List<String> signatures){
+    public String getMetrics(List<String> signatures){
+        StringBuilder result = null;
         for(String signature : signatures){
             Judgement judgement = judgementHashMap.get(signature);
-            System.out.println("Sygnatura orzeczenia: " + signature);
-            System.out.println("Data wydania orzeczenia: " + judgement.getSource().getPublicationDate());
-            System.out.println("Rodzaj sądu: " + judgement.getCourtType());
-            System.out.println("Sędziowie: " + judgement.getJudges().stream().map(judge -> judge.getName()).collect(Collectors.toList()));
+            result.append("Sygnatura orzeczenia: " + signature + "\n");
+            result.append("Data wydania orzeczenia: " + judgement.getSource().getPublicationDate() + "\n");
+            result.append("Rodzaj sądu: " + judgement.getCourtType() + "\n");
+            result.append("Sędziowie: " + judgement.getJudges().stream().map(judge -> judge.getName()).collect(Collectors.toList())+ "\n\n");
         }
+        return result.toString();
     }
 
     public JudgementsData(HashMap<String,Judgement> map){

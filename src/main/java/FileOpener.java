@@ -19,12 +19,12 @@ public class FileOpener {
     Zwraca listę ścieżek w postaci stringów
      */
     public ArrayList<String> fromPathListToStringList(String JsonDirectory) throws IOException{
-        ArrayList<String> StringPaths = new ArrayList<>();
+        ArrayList<String> stringPaths = new ArrayList<>();
         ArrayList<Path> PathPaths = this.getJsonList(JsonDirectory);
         for(Path x : PathPaths){
-            StringPaths.add(x.toString());
+            stringPaths.add(x.toString());
         }
-        return StringPaths;
+        return stringPaths;
     }
 
     /*
