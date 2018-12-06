@@ -28,6 +28,7 @@ public class CommandInvoker {
             string.replaceAll("\"","" );
         }
         AbstractFunction function = commands.get(arr[0]);
+        if(function == null) return "Błędna komenda";
         List<String> list = new ArrayList<>();
         if(arr.length > 1){
             list = Arrays.asList(Arrays.copyOfRange(arr, 1, arr.length - 1));

@@ -24,17 +24,18 @@ public class Main {
             System.out.println(data.getReasons("VIII Ka 283/14"));
             CommandInterpreter interpreter = new CommandInterpreter();
             System.out.println(interpreter.commandInterpreter("courtTypeDistribution",data));
-
+            */
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
                     Terminal terminal = new Terminal(map);
                 }
             });
-            */
+            /*
             CommandInvoker commandInvoker = new CommandInvoker(map);
             Scanner reader = new Scanner(System.in);
             String input = reader.next();
             System.out.println(commandInvoker.invoke(input));
+            */
         }catch (IOException e){
             System.out.println("coś nie wyszło");
             return;
