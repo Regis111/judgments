@@ -33,7 +33,18 @@ public class Terminal extends JFrame {
             }
             private void area(KeyEvent evt) {
                 int keyCode = evt.getKeyCode();
-                if (keyCode == 38) {
+                if(keyCode == 8) {
+                    try{
+                        int caretOffset = area.getCaretPosition();
+                        int lineNumber = area.getLineOfOffset(caretOffset);
+                        if(area.getLineStartOffset(lineNumber) == area.getCaretPosition()){
+                            evt.consume();
+                        }
+                    }catch(BadLocationException ex){
+                        ex.printStackTrace();
+                    }
+
+                }else if (keyCode == 38) {
                     try {
                         if(pos >= 0 && pos <= v.size() - 1){
                             pos++;
