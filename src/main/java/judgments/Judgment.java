@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Judgement {
+public class Judgment {
 
     private int id;
     private CourtType courtType;

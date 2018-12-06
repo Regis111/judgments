@@ -26,7 +26,7 @@ public class CommandInterpreter {
                 komenda + imię + nazwisko => długość inputu = 3
                  */
                 if(arrayOfCommands.length != 3) throw new InputMismatchException("Błędna ilość danych wejściowych");
-                return String.valueOf(data.numberOfJudgementsOfJudge(arrayOfCommands[1],arrayOfCommands[2]));
+                return String.valueOf(data.numberOfJudgementsOfJudge(arrayOfCommands[1]));
             case "top10Judges":
                 if(arrayOfCommands.length != 1) throw new InputMismatchException("Błędna ilość danych wejściowych");
                 return String.join(", ", data.top10judges().stream().map(Judge::getName).collect(Collectors.toList()));
