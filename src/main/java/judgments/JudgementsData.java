@@ -1,10 +1,10 @@
-import Attributes.CourtType;
-import Attributes.Judge;
-import Attributes.ReferencedRegulation;
+package judgments;
+
+import judgments.Attributes.CourtType;
+import judgments.Attributes.Judge;
+import judgments.Attributes.ReferencedRegulation;
 
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.safety.Whitelist;
 
 import java.util.*;
 import java.util.stream.Collectors;

@@ -1,4 +1,4 @@
-package Attributes;
+package judgments.Attributes;
 
 import java.util.List;
 

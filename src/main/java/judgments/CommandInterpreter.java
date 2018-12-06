@@ -1,17 +1,12 @@
-import Attributes.CourtType;
-import Attributes.Judge;
-import com.sun.xml.internal.ws.policy.PolicyMapUtil;
+package judgments;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.HashMap;
+import judgments.Attributes.CourtType;
+import judgments.Attributes.Judge;
+
 import java.util.Map;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class CommandInterpreter {
