@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args){
         try{
-            FileOpener x = new FileOpener();
+            FileOpener x = new FileOpener(); //siema haaaaaaaaaaaaaaaaaaaa
             Parser parser = new Parser();
             ArrayList<String> content = x.getFiles("C:\\JSON");
             HashMap<String,Judgement> map = parser.parseToMap(content);
