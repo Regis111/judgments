@@ -1,6 +1,6 @@
 package judgments.Attributes;
 
-public enum JudgementType {
+public enum JudgmentType {
     DECISION,
     RESOLUTION,
     SENTENCE,

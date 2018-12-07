@@ -5,12 +5,12 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Judgement {
+public class Judgment {
 
     private int id;
     private CourtType courtType;
     private List<CourtCase> courtCases;
-    private JudgementType judgmentType;
+    private JudgmentType judgmentType;
     private List<Judge> judges;
     private Source source;
     private List<String> courtReporters;
@@ -55,11 +55,11 @@ public class Judgement {
         this.courtCases = courtCases;
     }
 
-    public JudgementType getJudgmentType() {
+    public JudgmentType getJudgmentType() {
         return judgmentType;
     }
 
-    public void setJudgmentType(JudgementType judgmentType) {
+    public void setJudgmentType(JudgmentType judgmentType) {
         this.judgmentType = judgmentType;
     }
 

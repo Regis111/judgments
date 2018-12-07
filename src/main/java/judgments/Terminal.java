@@ -1,8 +1,12 @@
 package judgments;
 
+import judgments.Functions.AbstractFunction;
+import judgments.Functions.CommandInvoker;
+
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
 import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,7 +19,7 @@ public class Terminal extends JFrame {
     JTextArea area;
     int pos = 0;
 
-    public Terminal(JudgementsData data) {
+    public Terminal(HashMap<String, Judgment> map) {
         setTitle("my terminal");
         JPanel j = new JPanel();
         setLayout(new GridLayout(1, 1));
@@ -67,7 +71,7 @@ public class Terminal extends JFrame {
                         evt.consume();
                     }
                 } else if (keyCode == 10){
-                    v.add(linetext(data));
+                    v.add(linetext(map));
                 }
             }
         });
@@ -86,16 +90,16 @@ public class Terminal extends JFrame {
             ex.printStackTrace();
         }
     }
-    String linetext(JudgementsData data) {
+    String linetext(HashMap<String, Judgment> map) {
         String text = null;
         try {
             JTextArea ta = area;
-            CommandInterpreter interpreter = new CommandInterpreter();
+            CommandInvoker invoker = new CommandInvoker(map);
             int offset = ta.getLineOfOffset(ta.getCaretPosition());
             int start = ta.getLineStartOffset(offset);
             int end = ta.getLineEndOffset(offset);
             text = ta.getText(start, (end - start));
-            area.append("\n" + interpreter.commandInterpreter(text,data));
+            area.append("\n" + invoker.invoke(text));
         } catch (BadLocationException ex) {
             ex.printStackTrace();
         }
