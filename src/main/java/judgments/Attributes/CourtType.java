@@ -1,4 +1,4 @@
-package Attributes;
+package judgments.Attributes;
 
 public enum CourtType {
 

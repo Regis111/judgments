@@ -1,11 +1,9 @@
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+package judgments;
 
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
 public class Main {
 
     public static void main(String[] args){

@@ -1,6 +1,4 @@
-package Attributes;
-
-import Attributes.Code;
+package judgments.Attributes;
 
 import java.net.URL;
 
