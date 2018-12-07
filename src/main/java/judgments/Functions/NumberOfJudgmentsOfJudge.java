@@ -6,8 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class NumberOfJudgmentsOfJudge extends AbstractFunction{
-    public NumberOfJudgmentsOfJudge(HashMap<String, Judgment> JudgmentHashMap, String command) {
-        super(JudgmentHashMap, command);
+    public NumberOfJudgmentsOfJudge(HashMap<String, Judgment> JudgmentHashMap) {
+        super(JudgmentHashMap);
     }
 
     public int numberOfJudgmentsOfJudge(String judgeName){

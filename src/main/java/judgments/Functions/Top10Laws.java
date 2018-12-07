@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 
 public class Top10Laws extends AbstractFunction{
 
-    public Top10Laws(HashMap<String, Judgment> JudgmentHashMap, String command) {
-        super(JudgmentHashMap, command);
+    public Top10Laws(HashMap<String, Judgment> JudgmentHashMap) {
+        super(JudgmentHashMap);
     }
     public List<String> top10laws(){
         Map<String,Integer> judgeHashMap = new LinkedHashMap<>();

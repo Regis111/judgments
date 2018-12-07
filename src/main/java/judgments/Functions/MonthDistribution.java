@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MonthDistribution extends AbstractFunction{
-    public MonthDistribution(HashMap<String, Judgment> JudgmentHashMap, String command) {
-        super(JudgmentHashMap, command);
+    public MonthDistribution(HashMap<String, Judgment> JudgmentHashMap) {
+        super(JudgmentHashMap);
     }
 
     public int[] monthDistribution(){

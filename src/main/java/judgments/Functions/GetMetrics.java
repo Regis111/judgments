@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class GetMetrics extends AbstractFunction{
-    public GetMetrics(HashMap<String, Judgment> JudgmentHashMap, String command) {
-        super(JudgmentHashMap, command);
+    public GetMetrics(HashMap<String, Judgment> JudgmentHashMap) {
+        super(JudgmentHashMap);
     }
 
     public String getMetrics(List<String> signatures){

@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class GetReasons extends AbstractFunction{
-    public GetReasons(HashMap<String, Judgment> JudgmentHashMap, String command) {
-        super(JudgmentHashMap, command);
+    public GetReasons(HashMap<String, Judgment> JudgmentHashMap) {
+        super(JudgmentHashMap);
     }
 
     public String getReasons(String signature){

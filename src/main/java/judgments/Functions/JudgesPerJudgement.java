@@ -8,8 +8,8 @@ import java.util.List;
 
 public class JudgesPerJudgement extends AbstractFunction{
 
-    public JudgesPerJudgement(HashMap<String, Judgment> JudgmentHashMap, String command) {
-        super(JudgmentHashMap, command);
+    public JudgesPerJudgement(HashMap<String, Judgment> JudgmentHashMap) {
+        super(JudgmentHashMap);
     }
     public double judgesPerJudgment(){
         Collection<Judgment> judgments = JudgmentHashMap.values();

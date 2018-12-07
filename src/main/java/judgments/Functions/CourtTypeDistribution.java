@@ -10,8 +10,10 @@ import java.util.Map;
 
 public class CourtTypeDistribution extends AbstractFunction{
 
-    public CourtTypeDistribution(HashMap<String, Judgment> JudgmentHashMap, String command) {
-        super(JudgmentHashMap, command);
+
+
+    public CourtTypeDistribution(HashMap<String, Judgment> JudgmentHashMap) {
+        super(JudgmentHashMap);
     }
 
     private Map<CourtType,Integer> courtTypeDistribution(){
