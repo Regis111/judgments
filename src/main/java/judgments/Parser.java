@@ -20,7 +20,6 @@ public class Parser {
         for(String file : files){
             allJudgments.add(parse(file));
         }
-
         return allJudgments;
     }
     public HashMap<String,Judgment> parseToMap(ArrayList<String> files) throws IOException{

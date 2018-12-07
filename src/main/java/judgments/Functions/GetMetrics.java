@@ -12,7 +12,7 @@ public class GetMetrics extends AbstractFunction{
     }
 
     public String getMetrics(List<String> signatures){
-        StringBuilder result = null;
+        StringBuilder result = new StringBuilder();
         for(String signature : signatures){
             Judgment judgment = JudgmentHashMap.get(signature);
             result.append("Sygnatura orzeczenia: " + signature + "\n");
@@ -25,6 +25,6 @@ public class GetMetrics extends AbstractFunction{
 
     @Override
     public String function(List<String> list) {
-        return null;
+        return getMetrics(list);
     }
 }

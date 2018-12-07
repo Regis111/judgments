@@ -30,6 +30,8 @@ public class Terminal extends JFrame {
         area.setForeground(Color.white);
         area.setCaretColor(Color.white);
         area.setFont(new Font("Arial Black", Font.BOLD, 15));
+        area.setLineWrap(true);
+        area.setWrapStyleWord(true);
         area.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 area(evt);
@@ -72,6 +74,7 @@ public class Terminal extends JFrame {
                     }
                     else if (pos == 1){
                         replacer("");
+                        pos--;
                     }
                 } else if (keyCode == 10){
                     v.add(linetext(map));

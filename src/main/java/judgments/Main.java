@@ -21,6 +21,10 @@ public class Main {
                     Terminal terminal = new Terminal(map);
                 }
             });
+            /*
+            CommandInvoker invoker = new CommandInvoker(map);
+            System.out.println(invoker.invoke("getMetrics \"VIII U 1022/13\""));
+            */
         }catch (IOException e){
             System.out.println("coś nie wyszło");
             return;

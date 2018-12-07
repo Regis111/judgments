@@ -19,6 +19,7 @@ public class GetReasons extends AbstractFunction{
 
     @Override
     public String function(List<String> list) {
+        System.out.println(list);
         String signature = list.get(0);
         return getReasons(signature);
     }
