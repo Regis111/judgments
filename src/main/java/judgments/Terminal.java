@@ -3,8 +3,7 @@ package judgments;
 import judgments.Functions.AbstractFunction;
 import judgments.Functions.CommandInvoker;
 
-import java.awt.Color;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.Vector;
@@ -30,6 +29,7 @@ public class Terminal extends JFrame {
         area.setBackground(Color.black);
         area.setForeground(Color.white);
         area.setCaretColor(Color.white);
+        area.setFont(new Font("Arial Black", Font.BOLD, 15));
         area.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 area(evt);
@@ -69,6 +69,9 @@ public class Terminal extends JFrame {
                         String store = (String) v.get(v.size() - pos);
                         replacer(store);
                         evt.consume();
+                    }
+                    else if (pos == 1){
+                        replacer("");
                     }
                 } else if (keyCode == 10){
                     v.add(linetext(map));
