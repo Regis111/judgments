@@ -6,10 +6,12 @@ import java.util.HashMap;
 import java.util.List;
 
 public abstract class AbstractFunction {
-    HashMap<String, Judgment> JudgmentHashMap;
+    public HashMap<String, Judgment> JudgmentHashMap;
+    private byte numberOfArgumentsDemanded;
 
-    public AbstractFunction(HashMap<String, Judgment> JudgmentHashMap){
+    public AbstractFunction(HashMap<String, Judgment> JudgmentHashMap, int numberOfArgumentsDemanded){
         this.JudgmentHashMap = JudgmentHashMap;
+        this.numberOfArgumentsDemanded = this.numberOfArgumentsDemanded;
     }
 
     public abstract String function(List<String> list);

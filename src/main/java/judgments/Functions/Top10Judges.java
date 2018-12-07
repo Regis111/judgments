@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 
 public class Top10Judges extends AbstractFunction {
 
-    public Top10Judges(HashMap<String, Judgment> JudgmentHashMap) {
-        super(JudgmentHashMap);
+    public Top10Judges(HashMap<String, Judgment> JudgmentHashMap, int num) {
+        super(JudgmentHashMap, num);
     }
 
     private List<Judge> top10judges() {
@@ -36,6 +36,7 @@ public class Top10Judges extends AbstractFunction {
 
     @Override
     public String function(List<String> list) {
+        if(list.size() > 0) return "Błędna ilość argumentów";
         return String.join(", ", top10judges().stream().map(Judge::getName).collect(Collectors.toList()));
     }
 

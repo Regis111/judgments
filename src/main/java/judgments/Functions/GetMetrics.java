@@ -7,8 +7,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class GetMetrics extends AbstractFunction{
-    public GetMetrics(HashMap<String, Judgment> JudgmentHashMap) {
-        super(JudgmentHashMap);
+
+    public GetMetrics(HashMap<String, Judgment> JudgmentHashMap, int num) {
+        super(JudgmentHashMap, num);
     }
 
     public String getMetrics(List<String> signatures){
@@ -25,6 +26,7 @@ public class GetMetrics extends AbstractFunction{
 
     @Override
     public String function(List<String> list) {
+        if(list.size() == 0) return "Błędna ilość argumentów";
         return getMetrics(list);
     }
 }

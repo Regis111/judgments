@@ -7,9 +7,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
 import java.util.Vector;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import javax.swing.*;
 import javax.swing.text.BadLocationException;
 
 public class Terminal extends JFrame {
@@ -26,10 +24,11 @@ public class Terminal extends JFrame {
         j.setLayout(new GridLayout(1, 1));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         area = new JTextArea("");
+        //JScrollPane sp = new JScrollPane(area,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         area.setBackground(Color.black);
         area.setForeground(Color.white);
         area.setCaretColor(Color.white);
-        area.setFont(new Font("Arial Black", Font.BOLD, 15));
+        area.setFont(new Font("Consolas", Font.BOLD, 19));
         area.setLineWrap(true);
         area.setWrapStyleWord(true);
         area.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -82,6 +81,7 @@ public class Terminal extends JFrame {
             }
         });
         j.add(area);
+        //j.add(sp);
         add(j);
         setVisible(true);
     }

@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class GetReasons extends AbstractFunction{
-    public GetReasons(HashMap<String, Judgment> JudgmentHashMap) {
-        super(JudgmentHashMap);
+    public GetReasons(HashMap<String, Judgment> JudgmentHashMap, int num) {
+        super(JudgmentHashMap, num);
     }
 
     public String getReasons(String signature){
@@ -19,7 +19,7 @@ public class GetReasons extends AbstractFunction{
 
     @Override
     public String function(List<String> list) {
-        System.out.println(list);
+        if(list.size() != 1) return "Błędna ilość argumentów";
         String signature = list.get(0);
         return getReasons(signature);
     }

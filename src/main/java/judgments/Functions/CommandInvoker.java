@@ -12,14 +12,14 @@ public class CommandInvoker {
     String regex = "\\s+(?=([^\"]*\"[^\"]*\")*[^\"]*$)";
 
     public CommandInvoker(HashMap<String, Judgment> map){
-        commands.put("courtTypeDistribution", new CourtTypeDistribution(map)); // działą
-        commands.put("getMetrics",new GetMetrics(map)); //działa
-        commands.put("getReasons",new GetReasons(map)); //działa
-        commands.put("judgesPerJudgment",new JudgesPerJudgement(map)); // działa
-        commands.put("monthDistribution",new MonthDistribution(map)); // działa
-        commands.put("numberOfJudgmentsOfJudge",new NumberOfJudgmentsOfJudge(map)); // działa
-        commands.put("top10Judges", new Top10Judges(map)); //działa
-        commands.put("top10Laws", new Top10Laws(map)); // działą
+        commands.put("courtTypeDistribution", new CourtTypeDistribution(map,0));
+        commands.put("getMetrics",new GetMetrics(map,1));
+        commands.put("getReasons",new GetReasons(map,1));
+        commands.put("judgesPerJudgment",new JudgesPerJudgement(map,0));
+        commands.put("monthDistribution",new MonthDistribution(map,0));
+        commands.put("numberOfJudgmentsOfJudge",new NumberOfJudgmentsOfJudge(map,1));
+        commands.put("top10Judges", new Top10Judges(map,0));
+        commands.put("top10Laws", new Top10Laws(map,0));
     }
 
     public String invoke(String input){

@@ -10,10 +10,8 @@ import java.util.Map;
 
 public class CourtTypeDistribution extends AbstractFunction{
 
-
-
-    public CourtTypeDistribution(HashMap<String, Judgment> JudgmentHashMap) {
-        super(JudgmentHashMap);
+    public CourtTypeDistribution(HashMap<String, Judgment> JudgmentHashMap, int num) {
+        super(JudgmentHashMap, num);
     }
 
     private Map<CourtType,Integer> courtTypeDistribution(){
@@ -33,6 +31,7 @@ public class CourtTypeDistribution extends AbstractFunction{
 
     @Override
     public String function(List<String> list) {
+        if(list.size() > 0) return "Błędna ilość argumentów";
         Map<CourtType,Integer> map = courtTypeDistribution();
         StringBuilder result = new StringBuilder("");
         for(Map.Entry<CourtType,Integer> e : map.entrySet()){

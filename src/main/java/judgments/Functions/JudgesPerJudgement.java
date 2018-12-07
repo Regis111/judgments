@@ -8,8 +8,8 @@ import java.util.List;
 
 public class JudgesPerJudgement extends AbstractFunction{
 
-    public JudgesPerJudgement(HashMap<String, Judgment> JudgmentHashMap) {
-        super(JudgmentHashMap);
+    public JudgesPerJudgement(HashMap<String, Judgment> JudgmentHashMap,int num) {
+        super(JudgmentHashMap, num);
     }
     public double judgesPerJudgment(){
         Collection<Judgment> judgments = JudgmentHashMap.values();
@@ -21,6 +21,7 @@ public class JudgesPerJudgement extends AbstractFunction{
     }
     @Override
     public String function(List<String> list) {
+        if(list.size() > 0) return "Błędna ilość argumentów";
         return String.valueOf(judgesPerJudgment());
     }
 }

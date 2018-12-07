@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 
 public class Top10Laws extends AbstractFunction{
 
-    public Top10Laws(HashMap<String, Judgment> JudgmentHashMap) {
-        super(JudgmentHashMap);
+    public Top10Laws(HashMap<String, Judgment> JudgmentHashMap, int num) {
+        super(JudgmentHashMap, num);
     }
     public List<String> top10laws(){
         Map<String,Integer> judgeHashMap = new LinkedHashMap<>();
@@ -34,6 +34,7 @@ public class Top10Laws extends AbstractFunction{
     }
     @Override
     public String function(List<String> list) {
+        if(list.size() > 0) return "Błędna ilość argumentów";
         return String.join(", ", top10laws());
     }
 }
