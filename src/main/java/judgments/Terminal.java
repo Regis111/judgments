@@ -12,9 +12,9 @@ import javax.swing.text.BadLocationException;
 
 public class Terminal extends JFrame {
 
-    Vector v = new Vector();
-    JTextArea area;
-    int pos = 0;
+    private Vector v = new Vector();
+    private JTextArea area;
+    private int pos = 0;
 
     public Terminal(HashMap<String, Judgment> map) {
         setTitle("my terminal");
@@ -24,7 +24,6 @@ public class Terminal extends JFrame {
         j.setLayout(new GridLayout(1, 1));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         area = new JTextArea("");
-        //JScrollPane sp = new JScrollPane(area,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         area.setBackground(Color.black);
         area.setForeground(Color.white);
         area.setCaretColor(Color.white);
@@ -81,7 +80,7 @@ public class Terminal extends JFrame {
             }
         });
         j.add(area);
-        //j.add(sp);
+        j.add(new JScrollPane(area));
         add(j);
         setVisible(true);
     }
