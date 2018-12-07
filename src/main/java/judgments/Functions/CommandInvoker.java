@@ -20,6 +20,7 @@ public class CommandInvoker {
         commands.put("numberOfJudgmentsOfJudge",new NumberOfJudgmentsOfJudge(map,1));
         commands.put("top10Judges", new Top10Judges(map,0));
         commands.put("top10Laws", new Top10Laws(map,0));
+        commands.put("help",new Help(map,0));
     }
 
     public String invoke(String input){

@@ -1,8 +1,6 @@
 package judgments;
-
 import judgments.Functions.AbstractFunction;
 import judgments.Functions.CommandInvoker;
-
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
@@ -17,7 +15,7 @@ public class Terminal extends JFrame {
     private int pos = 0;
 
     public Terminal(HashMap<String, Judgment> map) {
-        setTitle("my terminal");
+        setTitle("Judgment DataBase");
         JPanel j = new JPanel();
         setLayout(new GridLayout(1, 1));
         setSize(800, 500);
@@ -27,7 +25,7 @@ public class Terminal extends JFrame {
         area.setBackground(Color.black);
         area.setForeground(Color.white);
         area.setCaretColor(Color.white);
-        area.setFont(new Font("Consolas", Font.BOLD, 19));
+        area.setFont(new Font("Consolas", Font.PLAIN, 19));
         area.setLineWrap(true);
         area.setWrapStyleWord(true);
         area.addKeyListener(new java.awt.event.KeyAdapter() {
