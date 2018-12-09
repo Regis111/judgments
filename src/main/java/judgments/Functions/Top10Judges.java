@@ -12,10 +12,10 @@ public class Top10Judges extends AbstractFunction {
         super(JudgmentHashMap, num);
     }
 
-    private List<Judge> top10judges() {
-        Map<Judge,Integer> judgeHashMap = new LinkedHashMap<>();
+    private List<String> top10judges() {
+        Map<String,Integer> judgeHashMap = new HashMap<>();
         for(Judgment judgment : JudgmentHashMap.values()){
-            for (Judge judge : judgment.getJudges()){
+            for (String judge : judgment.getJudges().stream().map(Judge::getName).collect(Collectors.toList())){
                 if(judgeHashMap.containsKey(judge)){
                     Integer oldValue = judgeHashMap.get(judge);
                     judgeHashMap.replace( judge, oldValue,oldValue + 1);
@@ -25,7 +25,8 @@ public class Top10Judges extends AbstractFunction {
                 }
             }
         }
-        List<Judge> judges = judgeHashMap.entrySet().stream()
+        System.out.println(judgeHashMap.entrySet().stream().collect(Collectors.toList()));
+        List<String> judges = judgeHashMap.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .limit(10)
                 .map(Map.Entry::getKey)
@@ -37,7 +38,7 @@ public class Top10Judges extends AbstractFunction {
     @Override
     public String function(List<String> list) {
         if(list.size() > 0) return "Błędna ilość argumentów";
-        return String.join(", ", top10judges().stream().map(Judge::getName).collect(Collectors.toList()));
+        return String.join(", ", top10judges().stream().collect(Collectors.toList()));
     }
 
 

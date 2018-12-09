@@ -7,11 +7,11 @@ import java.util.List;
 
 public abstract class AbstractFunction {
     public HashMap<String, Judgment> JudgmentHashMap;
-    private byte numberOfArgumentsDemanded;
+    private int numberOfArgumentsDemanded;
 
     public AbstractFunction(HashMap<String, Judgment> JudgmentHashMap, int numberOfArgumentsDemanded){
         this.JudgmentHashMap = JudgmentHashMap;
-        this.numberOfArgumentsDemanded = this.numberOfArgumentsDemanded;
+        this.numberOfArgumentsDemanded = numberOfArgumentsDemanded;
     }
 
     public abstract String function(List<String> list);

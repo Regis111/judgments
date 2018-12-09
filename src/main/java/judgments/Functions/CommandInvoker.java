@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class CommandInvoker {
-    HashMap<String,AbstractFunction> commands = new HashMap<>();
-    String regex = "\\s+(?=([^\"]*\"[^\"]*\")*[^\"]*$)";
+    private HashMap<String,AbstractFunction> commands = new HashMap<>();
+    private String regex = "\\s+(?=([^\"]*\"[^\"]*\")*[^\"]*$)";
 
     public CommandInvoker(HashMap<String, Judgment> map){
         commands.put("courtTypeDistribution", new CourtTypeDistribution(map,0));
