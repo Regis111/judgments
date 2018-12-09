@@ -73,7 +73,15 @@ public class Terminal extends JFrame {
                         pos--;
                     }
                 } else if (keyCode == 10){
-                    v.add(linetext(map));
+                    try{
+                        int caretOffset = area.getCaretPosition();
+                        int lineNumber = area.getLineOfOffset(caretOffset);
+                        int endOffset = area.getLineEndOffset(lineNumber);
+                        area.setCaretPosition(endOffset);
+                        v.add(linetext(map));
+                    }catch(BadLocationException ex){
+                        ex.printStackTrace();
+                    }
                 }
             }
         });
