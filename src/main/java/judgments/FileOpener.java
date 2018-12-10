@@ -28,7 +28,6 @@ public class FileOpener {
         }
         return stringPaths;
     }
-
     /*
     Zwraca zawartość plików JSON w postaci listy stringów
      */

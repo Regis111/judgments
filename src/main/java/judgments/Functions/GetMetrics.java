@@ -19,14 +19,14 @@ public class GetMetrics extends AbstractFunction{
             result.append("Sygnatura orzeczenia: " + signature + "\n");
             result.append("Data wydania orzeczenia: " + judgment.getSource().getPublicationDate() + "\n");
             result.append("Rodzaj sądu: " + judgment.getCourtType() + "\n");
-            result.append("Sędziowie: " + judgment.getJudges().stream().map(judge -> judge.getName()).collect(Collectors.toList())+ "\n\n");
+            result.append("Sędziowie: " + judgment.getJudges().stream().map(judge -> judge.getName()).collect(Collectors.toList()));
         }
         return result.toString();
     }
 
     @Override
     public String function(List<String> list) {
-        if(list.size() == 0) return "Błędna ilość argumentów";
+        if(list.size() == 0) return "Oczekiwana ilość argumentów to więcej niż 0";
         return getMetrics(list);
     }
 }

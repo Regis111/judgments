@@ -9,7 +9,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 
-public class Parser {
+public class JSONParser {
     public ArrayList<Judgment> parse(String file) throws IOException{
         Gson gson = new Gson();
         Type JudgmentListType = new TypeToken<ArrayList<Judgment>>(){}.getType();
@@ -27,8 +27,9 @@ public class Parser {
         List<List<Judgment>> judgments = parseAllFiles(files);
         for(List<Judgment> list : judgments){
             for(Judgment Judgment: list){
-                for(CourtCase courtCase : Judgment.getCourtCases())
+                for(CourtCase courtCase : Judgment.getCourtCases()){
                     map.put(courtCase.getCaseNumber(),Judgment);
+                }
             }
         }
         return map;

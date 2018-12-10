@@ -21,7 +21,6 @@ public class JudgesPerJudgement extends AbstractFunction{
     }
     @Override
     public String function(List<String> list) {
-        if(list.size() > 0) return "Błędna ilość argumentów";
         return String.valueOf(judgesPerJudgment());
     }
 }

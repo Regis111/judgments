@@ -31,6 +31,10 @@ public class Judgment {
     private List<Chamber> chambers;
     private List<DissentingOpinion> dissentingOpinions; //Trybunał konstytucyjny
 
+    public PersonnelType getPersonnelType() {
+        return personnelType;
+    }
+
     public int getId() {
         return id;
     }

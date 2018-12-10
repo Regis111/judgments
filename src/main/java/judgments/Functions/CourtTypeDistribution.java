@@ -31,7 +31,6 @@ public class CourtTypeDistribution extends AbstractFunction{
 
     @Override
     public String function(List<String> list) {
-        if(list.size() > 0) return "Błędna ilość argumentów";
         Map<CourtType,Integer> map = courtTypeDistribution();
         StringBuilder result = new StringBuilder("");
         for(Map.Entry<CourtType,Integer> e : map.entrySet()){

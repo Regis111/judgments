@@ -10,7 +10,6 @@ public class Help extends AbstractFunction{
         super(JudgmentHashMap, numberOfArgumentsDemanded);
     }
 
-
     @Override
     public String function(List<String> list) {
         return "Istnieją następujące komendy w systemie: \n" +

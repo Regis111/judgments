@@ -19,7 +19,6 @@ public class GetReasons extends AbstractFunction{
 
     @Override
     public String function(List<String> list) {
-        if(list.size() != 1) return "Błędna ilość argumentów";
         String signature = list.get(0);
         return getReasons(signature);
     }

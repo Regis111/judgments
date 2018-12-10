@@ -7,6 +7,7 @@ import java.util.List;
 
 public abstract class AbstractFunction {
     public HashMap<String, Judgment> JudgmentHashMap;
+
     private int numberOfArgumentsDemanded;
 
     public AbstractFunction(HashMap<String, Judgment> JudgmentHashMap, int numberOfArgumentsDemanded){
@@ -15,4 +16,8 @@ public abstract class AbstractFunction {
     }
 
     public abstract String function(List<String> list);
+
+    public int getNumberOfArgumentsDemanded() {
+        return numberOfArgumentsDemanded;
+    }
 }

@@ -1,6 +1,7 @@
 package judgments.Attributes;
 
 public enum PersonnelType {
+
     ONE_PERSON,
     THREE_PERSON,
     FIVE_PERSON,
@@ -16,7 +17,7 @@ public enum PersonnelType {
             case THREE_PERSON:
                 return "skład trzyosobowy";
             case FIVE_PERSON:
-                return "skład siedmioosobowy";
+                return "skład pięcioosobowy";
             case SEVEN_PERSON:
                 return "skład siedmioosobowy";
             case ALL_COURT:

@@ -21,6 +21,7 @@ public class CommandInvoker {
         commands.put("top10Judges", new Top10Judges(map,0));
         commands.put("top10Laws", new Top10Laws(map,0));
         commands.put("help",new Help(map,0));
+        commands.put("jury",new NumberOfJudgmentsOnJudgment(map,0));
     }
 
     public String invoke(String input){
@@ -33,6 +34,10 @@ public class CommandInvoker {
         List<String> list = new ArrayList<>();
         if(arr.length > 1){
             list = Arrays.asList(Arrays.copyOfRange(arr, 1, arr.length));
+        }
+        if(function.getNumberOfArgumentsDemanded() != list.size() && !arr[0].equals("getMetrics")){
+            System.out.println(1);
+            return "Błędna ilość argumentów, oczekiwana to: " + function.getNumberOfArgumentsDemanded();
         }
         return function.function(list);
     }

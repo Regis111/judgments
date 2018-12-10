@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args){
         try{
             FileOpener x = new FileOpener();
-            Parser parser = new Parser();
+            JSONParser parser = new JSONParser();
             ArrayList<String> content = x.getFiles("C:\\JSON");
             HashMap<String, Judgment> map = parser.parseToMap(content);
             java.awt.EventQueue.invokeLater(new Runnable() {
@@ -21,10 +21,7 @@ public class Main {
                     Terminal terminal = new Terminal(map);
                 }
             });
-            /*
-            CommandInvoker invoker = new CommandInvoker(map);
-            System.out.println(invoker.invoke("getMetrics \"VIII U 1022/13\""));
-            */
+
         }catch (IOException e){
             System.out.println("coś nie wyszło");
             return;

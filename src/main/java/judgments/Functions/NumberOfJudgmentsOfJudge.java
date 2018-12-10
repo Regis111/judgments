@@ -18,7 +18,6 @@ public class NumberOfJudgmentsOfJudge extends AbstractFunction{
 
     @Override
     public String function(List<String> list) {
-        if(list.size() != 1) return "Błędna ilość argumentów";
         String judgeName = list.get(0);
         return String.valueOf(numberOfJudgmentsOfJudge(judgeName));
     }

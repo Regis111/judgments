@@ -37,7 +37,6 @@ public class Top10Judges extends AbstractFunction {
 
     @Override
     public String function(List<String> list) {
-        if(list.size() > 0) return "Błędna ilość argumentów";
         return String.join(", ", top10judges().stream().collect(Collectors.toList()));
     }
 
