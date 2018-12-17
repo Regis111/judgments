@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class FileOpener {
-
     /*
     Zwraca ścieszki plików w folderze JSON
      */
@@ -17,17 +16,7 @@ public class FileOpener {
         Path dir = Paths.get(JsonDirectory);
         return Files.list(dir).collect(Collectors.toCollection(ArrayList::new));
     }
-    /*
-    Zwraca listę ścieżek w postaci stringów
-     */
-    public ArrayList<String> fromPathListToStringList(String JsonDirectory) throws IOException{
-        ArrayList<String> stringPaths = new ArrayList<>();
-        ArrayList<Path> PathPaths = this.getJsonList(JsonDirectory);
-        for(Path x : PathPaths){
-            stringPaths.add(x.toString());
-        }
-        return stringPaths;
-    }
+
     /*
     Zwraca zawartość plików JSON w postaci listy stringów
      */
@@ -44,7 +33,7 @@ public class FileOpener {
     /*
     Usuwa meta dane z pliku JSON
      */
-    public String removeMetaData(String file){
+    private String removeMetaData(String file){
         int beg = file.indexOf("items") + 7;
         int end = file.indexOf("queryTemplate") - 2;
         return file.substring(beg,end);

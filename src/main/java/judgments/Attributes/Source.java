@@ -23,6 +23,7 @@ public class Source {
         return reviser;
     }
 
+
     public String getPublicationDate() {
         return publicationDate;
     }
@@ -32,5 +33,10 @@ public class Source {
     String judgmentId;
     String publisher;
     String reviser;
+
+    public void setPublicationDate(String publicationDate) {
+        this.publicationDate = publicationDate;
+    }
+
     String publicationDate;
 }

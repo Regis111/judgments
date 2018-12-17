@@ -5,13 +5,18 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Judgment {
+public class Judgment{
 
     private int id;
-    private CourtType courtType;
-    private List<CourtCase> courtCases;
     private JudgmentType judgmentType;
+
+    public void setCourtType(CourtType courtType) {
+        this.courtType = courtType;
+    }
+
+    private CourtType courtType;
     private List<Judge> judges;
+    private List<CourtCase> courtCases;
     private Source source;
     private List<String> courtReporters;
     private String decision;
@@ -31,6 +36,10 @@ public class Judgment {
     private List<Chamber> chambers;
     private List<DissentingOpinion> dissentingOpinions; //Trybunał konstytucyjny
 
+    public CourtType getCourtType() {
+        return courtType;
+    }
+
     public PersonnelType getPersonnelType() {
         return personnelType;
     }
@@ -41,14 +50,6 @@ public class Judgment {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public CourtType getCourtType() {
-        return courtType;
-    }
-
-    public void setCourtType(CourtType courtType) {
-        this.courtType = courtType;
     }
 
     public List<CourtCase> getCourtCases() {

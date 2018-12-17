@@ -5,6 +5,10 @@ import java.util.Objects;
 
 public class Judge {
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     String name;
     String function;
     List<SpecialRole> specialRoles;

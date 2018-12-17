@@ -4,7 +4,8 @@ public enum CourtType {
 
     COMMON,
     SUPREME,
-    ADMINISTRATIVE,
+    PROVINCIAL_ADMINISTRATIVE,
+    LEADING_ADMINISTRATIVE,
     CONSTITUTIONAL_TRIBUNAL,
     NATIONAL_APPEAL_CHAMBER;
 
@@ -16,8 +17,10 @@ public enum CourtType {
                 return "Sąd Powszechny";
             case SUPREME:
                 return "Sąd Najwyższy";
-            case ADMINISTRATIVE:
-                return "Sąd Administracyjny";
+            case PROVINCIAL_ADMINISTRATIVE:
+                return "Wojewódzki Sąd Administracyjny";
+            case LEADING_ADMINISTRATIVE:
+                return "Naczelny Sąd Administracyjny";
             case CONSTITUTIONAL_TRIBUNAL:
                 return "Trybunał Konstytucyjny";
             case NATIONAL_APPEAL_CHAMBER:

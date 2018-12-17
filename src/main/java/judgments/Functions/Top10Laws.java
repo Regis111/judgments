@@ -11,6 +11,7 @@ public class Top10Laws extends AbstractFunction{
     public Top10Laws(HashMap<String, Judgment> JudgmentHashMap, int num) {
         super(JudgmentHashMap, num);
     }
+
     public List<String> top10laws(){
         Map<String,Integer> judgeHashMap = new LinkedHashMap<>();
         for(Judgment judgment : JudgmentHashMap.values()){
