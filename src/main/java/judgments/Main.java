@@ -1,5 +1,7 @@
 package judgments;
 
+import judgments.Attributes.ReferencedRegulation;
+import judgments.Attributes.SpecialRole;
 import judgments.Functions.CommandInvoker;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -20,18 +22,16 @@ public class Main {
         try{
             FileOpener x = new FileOpener();
             HTMLFileOpener y = new HTMLFileOpener();
-            HTMLParser z = new HTMLParser();
 
-            JSONParser parser = new JSONParser();
+            HTMLParser htmlParser = new HTMLParser();
+            JSONParser jsonParser = new JSONParser();
 
             ArrayList<String> content = x.getFiles("C:\\JSON");
             ArrayList<String> content1 = y.getFilesContent("C:\\HTML");
 
-
-            ArrayList<Judgment> judgments = z.parseFiles(content1);
-
-            HashMap<String, Judgment> map = parser.parseToMap(content);
-
+            ArrayList<Judgment> judgments = htmlParser.parseFiles(content1);
+            HashMap<String, Judgment> map = jsonParser.parseToMap(content);
+            
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
                     Terminal terminal = new Terminal(map);

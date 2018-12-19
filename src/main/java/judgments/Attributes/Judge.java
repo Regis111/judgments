@@ -11,6 +11,11 @@ public class Judge {
 
     String name;
     String function;
+
+    public void setSpecialRoles(List<SpecialRole> specialRoles) {
+        this.specialRoles = specialRoles;
+    }
+
     List<SpecialRole> specialRoles;
 
     public String getName() {

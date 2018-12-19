@@ -3,6 +3,22 @@ package judgments.Attributes;
 import java.net.URL;
 
 public class Source {
+
+    Code code;
+    URL judgmentUrl;
+    String judgmentId;
+    String publisher;
+    String reviser;
+    String publicationDate;
+
+    public String getPublicationDate() {
+        return publicationDate;
+    }
+
+    public void setPublicationDate(String publicationDate) {
+        this.publicationDate = publicationDate;
+    }
+
     public Code getCode() {
         return code;
     }
@@ -22,21 +38,4 @@ public class Source {
     public String getReviser() {
         return reviser;
     }
-
-
-    public String getPublicationDate() {
-        return publicationDate;
-    }
-
-    Code code;
-    URL judgmentUrl;
-    String judgmentId;
-    String publisher;
-    String reviser;
-
-    public void setPublicationDate(String publicationDate) {
-        this.publicationDate = publicationDate;
-    }
-
-    String publicationDate;
 }

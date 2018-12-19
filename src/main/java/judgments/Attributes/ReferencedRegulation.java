@@ -2,11 +2,12 @@ package judgments.Attributes;
 
 public class ReferencedRegulation {
 
-    public void setJournalTitle(String journalTitle) {
-        this.journalTitle = journalTitle;
-    }
 
     String journalTitle;
+    String text;
+    int journalYear;
+    int journalNo;
+    int journalEntry;
 
     public String getJournalTitle() {
         return journalTitle;
@@ -28,14 +29,14 @@ public class ReferencedRegulation {
         return text;
     }
 
-    int journalYear;
-    int journalNo;
-    int journalEntry;
-
     public void setText(String text) {
         this.text = text;
     }
 
-    String text;
+    public void setJournalTitle(String journalTitle) {
+        this.journalTitle = journalTitle;
+    }
+
+
 
 }
