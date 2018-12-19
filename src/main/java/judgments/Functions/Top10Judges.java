@@ -25,7 +25,7 @@ public class Top10Judges extends AbstractFunction {
                 }
             }
         }
-        System.out.println(judgeHashMap.entrySet().stream().collect(Collectors.toList()));
+
         List<String> judges = judgeHashMap.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .limit(10)

@@ -127,7 +127,7 @@ public class HTMLParser {
                 String x = element.select("td.info-list-value").html();
                 Elements table = Jsoup.parse(x).select("a");
                 Elements table2 = Jsoup.parse(x).select("span.nakt");
-                for (int i = 0 ;i < table.size() ; i++){
+                for (int i = 0 ; i < table.size() ; i++){
                     ReferencedRegulation r = new ReferencedRegulation();
                     r.setJournalTitle(table.get(i).html() + " - " + table2.get(i).html());
                     referencedRegulations.add(r);

@@ -30,11 +30,18 @@ public class Main {
             ArrayList<String> content1 = y.getFilesContent("C:\\HTML");
 
             ArrayList<Judgment> judgments = htmlParser.parseFiles(content1);
-            HashMap<String, Judgment> map = jsonParser.parseToMap(content);
-            
+
+
+            HashMap<String, Judgment> map3 = new HashMap<>();
+            HashMap<String, Judgment> map1 = jsonParser.parseToMap(content);
+            HashMap<String, Judgment> map2 = htmlParser.parseToMap(judgments);
+
+            map3.putAll(map1);
+            map3.putAll(map2);
+
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                    Terminal terminal = new Terminal(map);
+                    Terminal terminal = new Terminal(map3);
                 }
             });
 

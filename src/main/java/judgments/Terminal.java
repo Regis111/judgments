@@ -15,7 +15,7 @@ public class Terminal extends JFrame {
     private int pos = 0;
 
     public Terminal(HashMap<String, Judgment> map) {
-        setTitle("Judgment DataBase");
+        setTitle("Judgment Database");
         JPanel j = new JPanel();
         setLayout(new GridLayout(1, 1));
         setSize(800, 500);
@@ -44,7 +44,6 @@ public class Terminal extends JFrame {
                     }catch(BadLocationException ex){
                         ex.printStackTrace();
                     }
-
                 }else if (keyCode == 38) {
                     try {
                         if(pos >= 0 && pos <= v.size() - 1){
