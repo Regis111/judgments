@@ -1,8 +1,16 @@
 package judgments;
 import judgments.Functions.AbstractFunction;
 import judgments.Functions.CommandInvoker;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Vector;
 import javax.swing.*;
@@ -109,10 +117,32 @@ public class Terminal extends JFrame {
             int start = ta.getLineStartOffset(offset);
             int end = ta.getLineEndOffset(offset);
             text = ta.getText(start, (end - start));
-            area.append("\n" + invoker.invoke(text));
+            try{
+                if(invoker.invoke(text).equals("-1917")) {
+                    nothingImportant("a.wav");
+                    byte [] encoded = Files.readAllBytes(Paths.get("fist.txt"));
+                    area.append("\n" + new String(encoded));
+                }
+                else{
+                    area.append("\n" + invoker.invoke(text));
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         } catch (BadLocationException ex) {
             ex.printStackTrace();
         }
         return text;
+    }
+
+    private static void nothingImportant(String filePath){
+        InputStream something;
+        try{
+            something = new FileInputStream(new File(filePath));
+            AudioStream a = new AudioStream(something);
+            AudioPlayer.player.start(a);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }

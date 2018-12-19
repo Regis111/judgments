@@ -21,9 +21,8 @@ public class NumberOfJudgmentsOfJudge extends AbstractFunction{
     }
 
     public int numberOfJudgmentsOfJudge(String judgeName){
-        if(judgeName.equals("Józef Stalin")){
-            Desktop desktop = Desktop.getDesktop();
-            nothingImportant("a.wav");
+        if(judgeName.equals("Vladimir Lenin") || judgeName.equals("Nikita Chruszczow")){
+            return (-1917);
         }
         return (int)JudgmentHashMap.values().stream().map(Judgment::getJudges)
                 .flatMap(List::stream)
@@ -36,14 +35,5 @@ public class NumberOfJudgmentsOfJudge extends AbstractFunction{
         return String.valueOf(numberOfJudgmentsOfJudge(judgeName));
     }
 
-    private static void nothingImportant(String filePath){
-        InputStream something;
-        try{
-            something = new FileInputStream(new File(filePath));
-            AudioStream a = new AudioStream(something);
-            AudioPlayer.player.start(a);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
+
 }
