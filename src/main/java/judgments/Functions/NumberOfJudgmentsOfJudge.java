@@ -5,13 +5,8 @@ import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 import sun.security.krb5.internal.crypto.Des;
 
-import java.awt.Desktop;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,7 +16,7 @@ public class NumberOfJudgmentsOfJudge extends AbstractFunction{
     }
 
     public int numberOfJudgmentsOfJudge(String judgeName){
-        if(judgeName.equals("Vladimir Lenin") || judgeName.equals("Nikita Chruszczow")){
+        if(judgeName.equals("Vladimir Lenin") || judgeName.equals("Nikita Chruszczow") || judgeName.equals("Józef Stalin")){
             return (-1917);
         }
         return (int)JudgmentHashMap.values().stream().map(Judgment::getJudges)

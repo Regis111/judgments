@@ -26,18 +26,21 @@ public class CommandInvoker {
 
     public String invoke(String input){
         String [] arr = input.split(regex);
-        for(int i = 0 ;i< arr.length; i++){
+        for(int i = 0 ; i< arr.length ; i++){
             arr[i] = arr[i].replaceAll("\"","" );
         }
         AbstractFunction function = commands.get(arr[0]);
-        if(function == null) return "Błędna komenda - nie ma takiej funkcji w systemie";
+        if(function == null)
+            return "Błędna komenda - nie ma takiej funkcji w systemie \n\n"
+                    + invoke("help");
         List<String> list = new ArrayList<>();
         if(arr.length > 1){
             list = Arrays.asList(Arrays.copyOfRange(arr, 1, arr.length));
         }
         if(function.getNumberOfArgumentsDemanded() != list.size() && !arr[0].equals("getMetrics")){
-            System.out.println(1);
-            return "Błędna ilość argumentów, oczekiwana to: " + function.getNumberOfArgumentsDemanded();
+            return "Błędna ilość argumentów, oczekiwana to: " +
+                    function.getNumberOfArgumentsDemanded() +
+                    "\n\n" + invoke("help");
         }
         return function.function(list);
     }

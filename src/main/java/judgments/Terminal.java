@@ -1,14 +1,10 @@
 package judgments;
-import judgments.Functions.AbstractFunction;
 import judgments.Functions.CommandInvoker;
 import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
-
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -56,7 +52,6 @@ public class Terminal extends JFrame {
                     try {
                         if(pos >= 0 && pos <= v.size() - 1){
                             pos++;
-                            int ind = v.size() - pos;
                             String store = (String) v.get(v.size() - pos);
                             replacer(store);
                             evt.consume();
@@ -70,7 +65,6 @@ public class Terminal extends JFrame {
                 } else if (keyCode == 40) {
                     if(pos >= 2 && pos <= v.size() + 1){
                         pos--;
-                        int ind = v.size() - pos;
                         String store = (String) v.get(v.size() - pos);
                         replacer(store);
                         evt.consume();
@@ -97,7 +91,7 @@ public class Terminal extends JFrame {
         add(j);
         setVisible(true);
     }
-    void replacer(String rep) {
+    private void replacer(String rep) {
         try {
             int caretOffset = area.getCaretPosition();
             int lineNumber = area.getLineOfOffset(caretOffset);
@@ -108,15 +102,16 @@ public class Terminal extends JFrame {
             ex.printStackTrace();
         }
     }
-    String linetext(HashMap<String, Judgment> map) {
+    private String linetext(HashMap<String, Judgment> map) {
         String text = null;
+        String result = null;
         try {
-            JTextArea ta = area;
             CommandInvoker invoker = new CommandInvoker(map);
-            int offset = ta.getLineOfOffset(ta.getCaretPosition());
-            int start = ta.getLineStartOffset(offset);
-            int end = ta.getLineEndOffset(offset);
-            text = ta.getText(start, (end - start));
+            int offset = area.getLineOfOffset(area.getCaretPosition());
+            int start = area.getLineStartOffset(offset);
+            int end = area.getLineEndOffset(offset);
+            text = area.getText(start, (end - start));
+            result = invoker.invoke(text);
             try{
                 if(invoker.invoke(text).equals("-1917")) {
                     nothingImportant("a.wav");
@@ -124,10 +119,21 @@ public class Terminal extends JFrame {
                     area.append("\n" + new String(encoded));
                 }
                 else{
-                    area.append("\n" + invoker.invoke(text));
+                    area.append("\n" + result);
                 }
             }catch (Exception e){
                 e.printStackTrace();
+            }
+            try(FileWriter fw = new FileWriter("text.txt", true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                PrintWriter out = new PrintWriter(bw))
+            {
+                out.println(text);
+                //more code
+                out.println(result);
+                //more code
+            } catch (IOException e) {
+                //exception handling left as an exercise for the reader
             }
         } catch (BadLocationException ex) {
             ex.printStackTrace();
