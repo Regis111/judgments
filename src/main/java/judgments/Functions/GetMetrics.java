@@ -20,6 +20,7 @@ public class GetMetrics extends AbstractFunction{
             result.append("Data wydania orzeczenia: " + judgment.getSource().getPublicationDate() + "\n");
             result.append("Rodzaj sądu: " + judgment.getCourtType() + "\n");
             result.append("Sędziowie: " + judgment.getJudges().stream().map(judge -> judge.getName() + " - " + judge.getSpecialRoles()).collect(Collectors.toList()));
+            result.append("\n\n");
         }
         return result.toString();
     }

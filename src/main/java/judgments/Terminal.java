@@ -18,7 +18,7 @@ public class Terminal extends JFrame {
     private JTextArea area;
     private int pos = 0;
 
-    public Terminal(HashMap<String, Judgment> map) {
+    public Terminal(HashMap<String, Judgment> map,String path) {
         setTitle("Judgment Database");
         JPanel j = new JPanel();
         setLayout(new GridLayout(1, 1));
@@ -79,7 +79,7 @@ public class Terminal extends JFrame {
                         int lineNumber = area.getLineOfOffset(caretOffset);
                         int endOffset = area.getLineEndOffset(lineNumber);
                         area.setCaretPosition(endOffset);
-                        v.add(linetext(map));
+                        v.add(linetext(map,path));
                     }catch(BadLocationException ex){
                         ex.printStackTrace();
                     }
@@ -102,7 +102,7 @@ public class Terminal extends JFrame {
             ex.printStackTrace();
         }
     }
-    private String linetext(HashMap<String, Judgment> map) {
+    private String linetext(HashMap<String, Judgment> map, String path) {
         String text = null;
         String result = null;
         try {
@@ -124,7 +124,7 @@ public class Terminal extends JFrame {
             }catch (Exception e){
                 e.printStackTrace();
             }
-            try(FileWriter fw = new FileWriter("text.txt", true);
+            try(FileWriter fw = new FileWriter(path, true);
                 BufferedWriter bw = new BufferedWriter(fw);
                 PrintWriter out = new PrintWriter(bw))
             {

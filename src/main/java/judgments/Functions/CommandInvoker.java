@@ -37,10 +37,10 @@ public class CommandInvoker {
         if(arr.length > 1){
             list = Arrays.asList(Arrays.copyOfRange(arr, 1, arr.length));
         }
-        if(function.getNumberOfArgumentsDemanded() != list.size() && !arr[0].equals("getMetrics")){
+        if(function.getNumberOfArgumentsDemanded() != list.size() && !arr[0].equals("rubrum")){
             return "Błędna ilość argumentów, oczekiwana to: " +
                     function.getNumberOfArgumentsDemanded() +
-                    "\n\n" + invoke("help");
+                    "\n " + list.size() + "\n" + invoke("help");
         }
         return function.function(list);
     }
