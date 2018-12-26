@@ -16,9 +16,6 @@ public class NumberOfJudgmentsOfJudge extends AbstractFunction{
     }
 
     public int numberOfJudgmentsOfJudge(String judgeName){
-        if(judgeName.equals("Vladimir Lenin") || judgeName.equals("Nikita Chruszczow") || judgeName.equals("Józef Stalin")){
-            return (-1917);
-        }
         return (int)JudgmentHashMap.values().stream().map(Judgment::getJudges)
                 .flatMap(List::stream)
                 .filter(judge -> judge.getName().equals(judgeName)).count();

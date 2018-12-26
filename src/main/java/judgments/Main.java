@@ -41,10 +41,9 @@ public class Main {
 
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                    Terminal terminal = new Terminal(map3);
+                    Terminal terminal = new Terminal(map3,args[0]);
                 }
             });
-
         }catch (IOException e){
             System.out.println("coś nie wyszło");
             e.printStackTrace();

@@ -1,7 +1,5 @@
 package judgments;
 import judgments.Functions.CommandInvoker;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.*;
@@ -112,16 +110,9 @@ public class Terminal extends JFrame {
             int end = area.getLineEndOffset(offset);
             text = area.getText(start, (end - start));
             result = invoker.invoke(text);
-            try{
-                if(invoker.invoke(text).equals("-1917")) {
-                    nothingImportant("a.wav");
-                    byte [] encoded = Files.readAllBytes(Paths.get("fist.txt"));
-                    area.append("\n" + new String(encoded));
-                }
-                else{
-                    area.append("\n" + result);
-                }
-            }catch (Exception e){
+            area.append("\n" + result);
+            }
+            catch (Exception e){
                 e.printStackTrace();
             }
             try(FileWriter fw = new FileWriter(path, true);
@@ -129,26 +120,11 @@ public class Terminal extends JFrame {
                 PrintWriter out = new PrintWriter(bw))
             {
                 out.println(text);
-                //more code
                 out.println(result);
-                //more code
             } catch (IOException e) {
-                //exception handling left as an exercise for the reader
+                e.printStackTrace();
             }
-        } catch (BadLocationException ex) {
-            ex.printStackTrace();
-        }
-        return text;
-    }
 
-    private static void nothingImportant(String filePath){
-        InputStream something;
-        try{
-            something = new FileInputStream(new File(filePath));
-            AudioStream a = new AudioStream(something);
-            AudioPlayer.player.start(a);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+        return text;
     }
 }

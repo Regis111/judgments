@@ -21,6 +21,7 @@ public class Help extends AbstractFunction{
                 "6. \"judge\" - zwraca ilość wyroków związanych z wybranym sędzią \n" +
                 "7. \"regulations\" - zwraca 10 najczęściej przytaczanych ustaw \n" +
                 "8. \"judges\" - zwraca 10 najbardziej aktywnych sędziów \n" +
-                "9. \"jury\" - zwraca statystykę spraw przypadających na skład sędziowski";
+                "9. \"jury\" - zwraca statystykę spraw przypadających na skład sędziowski\n\n" +
+                "Argumenty powinny być podawane w cudzysłowiu np. rubrum \"II SA 2597/02\"";
     }
 }
