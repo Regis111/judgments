@@ -5,18 +5,13 @@ import java.util.Objects;
 
 public class Judge {
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    String name;
-    String function;
+    private String name;
+    private String function;
+    private List<SpecialRole> specialRoles;
 
     public void setSpecialRoles(List<SpecialRole> specialRoles) {
         this.specialRoles = specialRoles;
     }
-
-    List<SpecialRole> specialRoles;
 
     public String getName() {
         return name;
@@ -28,6 +23,10 @@ public class Judge {
 
     public List<SpecialRole> getSpecialRoles() {
         return specialRoles;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

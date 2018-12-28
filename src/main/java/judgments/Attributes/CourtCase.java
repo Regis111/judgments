@@ -2,7 +2,7 @@ package judgments.Attributes;
 
 public class CourtCase {
 
-    String caseNumber;
+    private String caseNumber;
 
 
     public CourtCase(String caseNumber){

@@ -3,7 +3,7 @@ package judgments.Attributes;
 import java.util.List;
 
 public class ReferencedCourtCase {
-    String caseNumber;
-    List<String> judgmentIds;
-    Boolean generated;
+    private String caseNumber;
+    private List<String> judgmentIds;
+    private Boolean generated;
 }

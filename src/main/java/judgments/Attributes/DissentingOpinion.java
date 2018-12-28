@@ -3,6 +3,6 @@ package judgments.Attributes;
 import java.util.List;
 
 public class DissentingOpinion {
-    String textContent;
-    List<String> authors;
+    private String textContent;
+    private List<String> authors;
 }

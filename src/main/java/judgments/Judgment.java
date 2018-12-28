@@ -9,11 +9,6 @@ public class Judgment{
 
     private int id;
     private JudgmentType judgmentType;
-
-    public void setCourtType(CourtType courtType) {
-        this.courtType = courtType;
-    }
-
     private CourtType courtType;
     private List<Judge> judges;
     private List<CourtCase> courtCases;
@@ -35,6 +30,10 @@ public class Judgment{
     private int divisionID;
     private List<Chamber> chambers;
     private List<DissentingOpinion> dissentingOpinions; //Trybunał konstytucyjny
+
+    public void setCourtType(CourtType courtType) {
+        this.courtType = courtType;
+    }
 
     public CourtType getCourtType() {
         return courtType;

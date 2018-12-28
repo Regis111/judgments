@@ -3,11 +3,11 @@ package judgments.Attributes;
 public class ReferencedRegulation {
 
 
-    String journalTitle;
-    String text;
-    int journalYear;
-    int journalNo;
-    int journalEntry;
+    private String journalTitle;
+    private String text;
+    private int journalYear;
+    private int journalNo;
+    private int journalEntry;
 
     public String getJournalTitle() {
         return journalTitle;
@@ -38,5 +38,7 @@ public class ReferencedRegulation {
     }
 
 
-
+    public void setJournalYear(int journalYear) {
+        this.journalYear = journalYear;
+    }
 }
