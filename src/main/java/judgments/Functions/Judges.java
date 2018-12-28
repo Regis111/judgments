@@ -6,9 +6,9 @@ import judgments.Judgment;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Top10Judges extends AbstractFunction {
+public class Judges extends AbstractFunction {
 
-    public Top10Judges(HashMap<String, Judgment> JudgmentHashMap, int num) {
+    public Judges(HashMap<String, Judgment> JudgmentHashMap, int num) {
         super(JudgmentHashMap, num);
     }
 

@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class GetMetrics extends AbstractFunction{
+public class Rubrum extends AbstractFunction{
 
-    public GetMetrics(HashMap<String, Judgment> JudgmentHashMap, int num) {
+    public Rubrum(HashMap<String, Judgment> JudgmentHashMap, int num) {
         super(JudgmentHashMap, num);
     }
 
-    public String getMetrics(List<String> signatures){
+    private String getMetrics(List<String> signatures){
         StringBuilder result = new StringBuilder();
         for(String signature : signatures){
             Judgment judgment = JudgmentHashMap.get(signature);

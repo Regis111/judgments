@@ -6,13 +6,13 @@ import judgments.Judgment;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Top10Laws extends AbstractFunction{
+public class Regulations extends AbstractFunction{
 
-    public Top10Laws(HashMap<String, Judgment> JudgmentHashMap, int num) {
+    public Regulations(HashMap<String, Judgment> JudgmentHashMap, int num) {
         super(JudgmentHashMap, num);
     }
 
-    public List<String> top10laws(){
+    private List<String> top10laws(){
         Map<String,Integer> judgeHashMap = new LinkedHashMap<>();
         for(Judgment judgment : JudgmentHashMap.values()){
             for (ReferencedRegulation regulation : judgment.getReferencedRegulations()){

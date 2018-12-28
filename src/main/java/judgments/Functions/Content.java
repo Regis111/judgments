@@ -6,12 +6,12 @@ import org.jsoup.Jsoup;
 import java.util.HashMap;
 import java.util.List;
 
-public class GetReasons extends AbstractFunction{
-    public GetReasons(HashMap<String, Judgment> JudgmentHashMap, int num) {
+public class Content extends AbstractFunction{
+    public Content(HashMap<String, Judgment> JudgmentHashMap, int num) {
         super(JudgmentHashMap, num);
     }
 
-    public String getReasons(String signature){
+    private String getReasons(String signature){
         Judgment judgment = JudgmentHashMap.get(signature);
         int index = judgment.getTextContent().indexOf("UZASADNIENIE");
         return Jsoup.parse(judgment.getTextContent().substring(index)).toString().replaceAll("\\<[^>]*>","");

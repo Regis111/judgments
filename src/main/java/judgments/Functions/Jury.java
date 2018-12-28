@@ -9,9 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class NumberOfJudgmentsOnJudgment extends AbstractFunction{
+public class Jury extends AbstractFunction{
 
-    public NumberOfJudgmentsOnJudgment(HashMap<String, Judgment> JudgmentHashMap, int numberOfArgumentsDemanded) {
+    public Jury(HashMap<String, Judgment> JudgmentHashMap, int numberOfArgumentsDemanded) {
         super(JudgmentHashMap, numberOfArgumentsDemanded);
     }
 

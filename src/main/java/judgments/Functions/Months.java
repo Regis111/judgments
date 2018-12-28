@@ -7,12 +7,12 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
-public class MonthDistribution extends AbstractFunction{
-    public MonthDistribution(HashMap<String, Judgment> JudgmentHashMap, int num) {
+public class Months extends AbstractFunction{
+    public Months(HashMap<String, Judgment> JudgmentHashMap, int num) {
         super(JudgmentHashMap, num);
     }
 
-    public int[] monthDistribution(){
+    private int[] monthDistribution(){
         Collection<Judgment> judgments = JudgmentHashMap.values();
         int [] JudgmentsPerMonth = new int[12];
         for(Judgment judgment : judgments){

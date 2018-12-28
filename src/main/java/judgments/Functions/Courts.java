@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CourtTypeDistribution extends AbstractFunction{
+public class Courts extends AbstractFunction{
 
-    public CourtTypeDistribution(HashMap<String, Judgment> JudgmentHashMap, int num) {
+    public Courts(HashMap<String, Judgment> JudgmentHashMap, int num) {
         super(JudgmentHashMap, num);
     }
 
