@@ -3,8 +3,6 @@ import judgments.Functions.CommandInvoker;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Vector;
 import javax.swing.*;
@@ -36,7 +34,7 @@ public class Terminal extends JFrame {
             }
             private void area(KeyEvent evt) {
                 int keyCode = evt.getKeyCode();
-                if(keyCode == 8) {
+                if(keyCode == 8) { // przycisk Backspace
                     try{
                         int caretOffset = area.getCaretPosition();
                         int lineNumber = area.getLineOfOffset(caretOffset);
@@ -46,7 +44,7 @@ public class Terminal extends JFrame {
                     }catch(BadLocationException ex){
                         ex.printStackTrace();
                     }
-                }else if (keyCode == 38) {
+                }else if (keyCode == 38) { // przycisk górnej strzałki
                     try {
                         if(pos >= 0 && pos <= v.size() - 1){
                             pos++;
@@ -60,7 +58,7 @@ public class Terminal extends JFrame {
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
-                } else if (keyCode == 40) {
+                } else if (keyCode == 40) { // przycisk dolnej strzałki
                     if(pos >= 2 && pos <= v.size() + 1){
                         pos--;
                         String store = (String) v.get(v.size() - pos);
@@ -71,7 +69,7 @@ public class Terminal extends JFrame {
                         replacer("");
                         pos--;
                     }
-                } else if (keyCode == 10){
+                } else if (keyCode == 10){ // przycisk Enter
                     try{
                         int caretOffset = area.getCaretPosition();
                         int lineNumber = area.getLineOfOffset(caretOffset);
@@ -89,6 +87,9 @@ public class Terminal extends JFrame {
         add(j);
         setVisible(true);
     }
+    /*
+    odpowiada za zamienianie tekstu komendy na tekst komend znajdujących się w wektorze
+     */
     private void replacer(String rep) {
         try {
             int caretOffset = area.getCaretPosition();
@@ -100,6 +101,9 @@ public class Terminal extends JFrame {
             ex.printStackTrace();
         }
     }
+    /*
+    odpowiada za wyświetlenie rezultatu komendy,
+     */
     private String linetext(HashMap<String, Judgment> map, String path) {
         String text = null;
         String result = null;
@@ -111,20 +115,24 @@ public class Terminal extends JFrame {
             text = area.getText(start, (end - start));
             result = invoker.invoke(text);
             area.append("\n" + result);
-            }
-            catch (Exception e){
+            } catch (Exception e){
                 e.printStackTrace();
             }
-            try(FileWriter fw = new FileWriter(path, true);
-                BufferedWriter bw = new BufferedWriter(fw);
-                PrintWriter out = new PrintWriter(bw))
-            {
-                out.println(text);
-                out.println(result);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
+            writeToFile(path,text,result);
         return text;
+    }
+    /*
+    odpowiada za wpisywanie wszystkich komend i ich wyników do pliku txt
+    */
+    private void writeToFile(String path, String text, String result){
+        try(FileWriter fw = new FileWriter(path, true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter writer = new PrintWriter(bw))
+        {
+            writer.println(text);
+            writer.println(result);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

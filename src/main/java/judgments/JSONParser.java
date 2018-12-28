@@ -1,6 +1,5 @@
 package judgments;
 
-import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.*;
 
@@ -10,21 +9,30 @@ import com.google.gson.reflect.TypeToken;
 
 
 public class JSONParser {
-    public ArrayList<Judgment> parse(String file) throws IOException{
+    /*
+    parsuje plik JSON do kilku obiektów Judgment
+     */
+    public ArrayList<Judgment> parse(String fileContent){
         Gson gson = new Gson();
         Type JudgmentListType = new TypeToken<ArrayList<Judgment>>(){}.getType();
-        return gson.fromJson(file,JudgmentListType);
+        return gson.fromJson(fileContent,JudgmentListType);
     }
-    public List<List<Judgment>> parseAllFiles(ArrayList<String> files) throws IOException{
+    /*
+    parsuje wszystkie pliki JSON
+     */
+    public List<List<Judgment>> parseAllFiles(ArrayList<String> filesContents){
         List<List<Judgment>> allJudgments = new ArrayList<>();
-        for(String file : files){
+        for(String file : filesContents){
             allJudgments.add(parse(file));
         }
         return allJudgments;
     }
-    public HashMap<String,Judgment> parseToMap(ArrayList<String> files) throws IOException{
+    /*
+    wkłada obiekty Judgment do mapy
+     */
+    public HashMap<String,Judgment> parseToMap(ArrayList<String> filesContents){
         HashMap<String,Judgment> map = new HashMap<>();
-        List<List<Judgment>> judgments = parseAllFiles(files);
+        List<List<Judgment>> judgments = parseAllFiles(filesContents);
         for(List<Judgment> list : judgments){
             for(Judgment Judgment: list){
                 for(CourtCase courtCase : Judgment.getCourtCases()){

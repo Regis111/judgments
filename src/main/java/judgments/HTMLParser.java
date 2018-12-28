@@ -16,19 +16,9 @@ import static org.jsoup.Jsoup.parse;
 
 public class HTMLParser {
 
-    private Judgment parseFile(String content){
-        Document htmlDocument = Jsoup.parse(content, "UTF-8");
-        Elements elements = htmlDocument.select("tr.niezaznaczona");
-        Judgment judgment = new Judgment();
-        judgment.setCourtCases(signature(htmlDocument));
-        judgment.setTextContent(textContent(elements)); //uzasadnienie
-        judgment.setJudges(judges(elements)); // sędziowie
-        judgment.setSource(source(elements)); //publicationDate
-        judgment.setCourtType(courtType(elements));
-        judgment.setReferencedRegulations(referencedRegulations(elements)); // powołane przepisy
-        return judgment;
-    }
-
+    /*
+    parsuje sygnaturę
+     */
     private List<CourtCase> signature(Document html){
         String string = html.select("div#warunek").text();
         int index = string.indexOf("-");
@@ -38,7 +28,9 @@ public class HTMLParser {
         courtCases.add(courtCase);
         return courtCases;
     }
-
+    /*
+    parsuje uzasadnienie
+     */
     private String  textContent(Elements elements){
         String result = new String();
         for(Element element : elements){
@@ -49,7 +41,9 @@ public class HTMLParser {
         }
         return result;
     }
-
+    /*
+    parsuje sędziów
+     */
     private List<Judge> judges(Elements elements){
         List<Judge> result = new ArrayList<>();
         for(Element element : elements){
@@ -66,11 +60,15 @@ public class HTMLParser {
         }
         return result;
     }
-
+    /*
+    parsuje imię i nazwisko sędziego z tekstu html
+     */
     private String name(String string){
         return string.replaceFirst(" \\/(.*?)\\/","");
     }
-
+    /*
+    parsuje role sędziego z tekstu html
+     */
     private List<SpecialRole> role(String string){
         List<SpecialRole> result = new ArrayList<>();
         if(!string.contains("/")){
@@ -90,7 +88,9 @@ public class HTMLParser {
         }
         return result;
     }
-
+    /*
+    parsuje rodzaj sądu z pliku html
+     */
     private CourtType courtType(Elements elements){
         CourtType court = null;
         for(Element element : elements){
@@ -106,7 +106,9 @@ public class HTMLParser {
         }
         return court;
     }
-
+    /*
+    parsuje datę orzeczenia wyroku
+     */
     private Source source(Elements elements){
         Source source = new Source();
         String date = new String();
@@ -119,7 +121,9 @@ public class HTMLParser {
         source.setPublicationDate(date);
         return source;
     }
-
+    /*
+    parsuje powołane przepisy
+     */
     private List<ReferencedRegulation> referencedRegulations(Elements elements){
         List<ReferencedRegulation> referencedRegulations = new ArrayList<>();
         for (Element element : elements){
@@ -137,7 +141,24 @@ public class HTMLParser {
         }
         return referencedRegulations;
     }
-
+    /*
+    Parsuje jeden plik HTML do jednego obiektu Judgment
+     */
+    private Judgment parseFile(String content){
+        Document htmlDocument = Jsoup.parse(content, "UTF-8");
+        Elements elements = htmlDocument.select("tr.niezaznaczona");
+        Judgment judgment = new Judgment();
+        judgment.setCourtCases(signature(htmlDocument));
+        judgment.setTextContent(textContent(elements));
+        judgment.setJudges(judges(elements));
+        judgment.setSource(source(elements));
+        judgment.setCourtType(courtType(elements));
+        judgment.setReferencedRegulations(referencedRegulations(elements));
+        return judgment;
+    }
+    /*
+    parsuje wszystkie pliki html
+     */
     public ArrayList<Judgment> parseFiles(ArrayList<String> fileContent) throws IOException {
         ArrayList<Judgment> judgments = new ArrayList<>();
         for (String file : fileContent){
@@ -146,7 +167,9 @@ public class HTMLParser {
         }
         return judgments;
     }
-
+    /*
+    wkłada wszystkie obiekty Judgment do mapy
+     */
     public HashMap<String,Judgment> parseToMap(ArrayList<Judgment> judgments){
         HashMap<String,Judgment> map = new HashMap<>();
         for (Judgment judgment : judgments){

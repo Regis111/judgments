@@ -13,12 +13,16 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class HTMLFileOpener {
-
+    /*
+    Zwraca ścieżki plików HTML
+     */
     private ArrayList<Path> getFilesPaths(String HtmlDirectory) throws IOException {
         Path dir = Paths.get(HtmlDirectory);
        return Files.list(dir).collect(Collectors.toCollection(ArrayList::new));
     }
-
+    /*
+    Zwraca zawartość plików HTML
+     */
     public ArrayList<String> getFilesContent(String HtmlDirectory) throws IOException {
         ArrayList<String> filesContent = new ArrayList<>();
         ArrayList<Path> paths = getFilesPaths(HtmlDirectory);
