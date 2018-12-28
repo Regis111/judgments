@@ -16,9 +16,8 @@ public class Terminal extends JFrame {
 
     public Terminal(HashMap<String, Judgment> map,String path) {
         setTitle("Judgment Database");
-        JPanel j = new JPanel();
-        setLayout(new GridLayout(1, 1));
         setSize(800, 500);
+        JPanel j = new JPanel();
         j.setLayout(new GridLayout(1, 1));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         area = new JTextArea("");
@@ -29,10 +28,12 @@ public class Terminal extends JFrame {
         area.setLineWrap(true);
         area.setWrapStyleWord(true);
         area.addKeyListener(new java.awt.event.KeyAdapter() {
+            private CommandInvoker invoker = new CommandInvoker(map);
+            @Override
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                area(evt);
+                area(evt,invoker);
             }
-            private void area(KeyEvent evt) {
+            private void area(KeyEvent evt,CommandInvoker invoker) {
                 int keyCode = evt.getKeyCode();
                 if(keyCode == 8) { // przycisk Backspace
                     try{
@@ -75,7 +76,7 @@ public class Terminal extends JFrame {
                         int lineNumber = area.getLineOfOffset(caretOffset);
                         int endOffset = area.getLineEndOffset(lineNumber);
                         area.setCaretPosition(endOffset);
-                        v.add(linetext(map,path));
+                        v.add(linetext(map,path,invoker));
                     }catch(BadLocationException ex){
                         ex.printStackTrace();
                     }
@@ -104,11 +105,10 @@ public class Terminal extends JFrame {
     /*
     odpowiada za wyświetlenie rezultatu komendy,
      */
-    private String linetext(HashMap<String, Judgment> map, String path) {
+    private String linetext(HashMap<String, Judgment> map, String path,CommandInvoker invoker) {
         String text = null;
         String result = null;
         try {
-            CommandInvoker invoker = new CommandInvoker(map);
             int offset = area.getLineOfOffset(area.getCaretPosition());
             int start = area.getLineStartOffset(offset);
             int end = area.getLineEndOffset(offset);

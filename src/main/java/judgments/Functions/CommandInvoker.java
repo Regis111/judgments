@@ -31,16 +31,15 @@ public class CommandInvoker {
         }
         AbstractFunction function = commands.get(arr[0]);
         if(function == null)
-            return "Błędna komenda - nie ma takiej funkcji w systemie \n\n"
+            return "Błędna komenda - nie ma takiej komendy w systemie \n\n"
                     + invoke("help");
         List<String> list = new ArrayList<>();
         if(arr.length > 1){
             list = Arrays.asList(Arrays.copyOfRange(arr, 1, arr.length));
         }
         if(function.getNumberOfArgumentsDemanded() != list.size() && !arr[0].equals("rubrum")){
-            return "Błędna ilość argumentów, oczekiwana to: " +
-                    function.getNumberOfArgumentsDemanded() +
-                    "\n " + list.size() + "\n" + invoke("help");
+            return "Błędna ilość argumentów dla komendy: \"" + arr[0] + "\" , oczekiwana to: " +
+                    function.getNumberOfArgumentsDemanded();
         }
         return function.function(list);
     }
