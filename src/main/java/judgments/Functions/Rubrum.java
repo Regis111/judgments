@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class Rubrum extends AbstractFunction{
 
-    public Rubrum(HashMap<String, Judgment> JudgmentHashMap, int num) {
+    Rubrum(HashMap<String, Judgment> JudgmentHashMap, int num) {
         super(JudgmentHashMap, num);
     }
 

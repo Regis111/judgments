@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class Jury extends AbstractFunction{
 
-    public Jury(HashMap<String, Judgment> JudgmentHashMap, int numberOfArgumentsDemanded) {
+    Jury(HashMap<String, Judgment> JudgmentHashMap, int numberOfArgumentsDemanded) {
         super(JudgmentHashMap, numberOfArgumentsDemanded);
     }
 

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Content extends AbstractFunction{
-    public Content(HashMap<String, Judgment> JudgmentHashMap, int num) {
+    Content(HashMap<String, Judgment> JudgmentHashMap, int num) {
         super(JudgmentHashMap, num);
     }
 

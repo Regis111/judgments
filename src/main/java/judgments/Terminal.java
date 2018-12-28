@@ -31,6 +31,7 @@ public class Terminal extends JFrame {
             private CommandInvoker invoker = new CommandInvoker(map);
             @Override
             public void keyPressed(java.awt.event.KeyEvent evt) {
+                deleteTextInFile(path);
                 area(evt,invoker);
             }
             private void area(KeyEvent evt,CommandInvoker invoker) {
@@ -134,5 +135,15 @@ public class Terminal extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    private void deleteTextInFile(String path){
+        try{
+            PrintWriter writer = new PrintWriter(path);
+            writer.print("");
+            writer.close();
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+
     }
 }

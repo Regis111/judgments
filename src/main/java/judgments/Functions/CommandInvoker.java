@@ -1,7 +1,5 @@
 package judgments.Functions;
-
 import judgments.Judgment;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,7 +7,7 @@ import java.util.List;
 
 public class CommandInvoker {
     private HashMap<String,AbstractFunction> commands = new HashMap<>();
-    private String regex = "\\s+(?=([^\"]*\"[^\"]*\")*[^\"]*$)";
+    private final String regex = "\\s+(?=([^\"]*\"[^\"]*\")*[^\"]*$)";
 
     public CommandInvoker(HashMap<String, Judgment> map){
         commands.put("courts", new Courts(map,0));
@@ -27,12 +25,11 @@ public class CommandInvoker {
     public String invoke(String input){
         String [] arr = input.split(regex);
         for(int i = 0 ; i< arr.length ; i++){
-            arr[i] = arr[i].replaceAll("\"","" );
+            arr[i] = arr[i].replaceAll("\"","");
         }
         AbstractFunction function = commands.get(arr[0]);
         if(function == null)
-            return "Błędna komenda - nie ma takiej komendy w systemie \n\n"
-                    + invoke("help");
+            return "Błędna komenda - nie ma takiej komendy w systemie \n\n" + invoke("help");
         List<String> list = new ArrayList<>();
         if(arr.length > 1){
             list = Arrays.asList(Arrays.copyOfRange(arr, 1, arr.length));

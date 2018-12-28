@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Months extends AbstractFunction{
-    public Months(HashMap<String, Judgment> JudgmentHashMap, int num) {
+    Months(HashMap<String, Judgment> JudgmentHashMap, int num) {
         super(JudgmentHashMap, num);
     }
 

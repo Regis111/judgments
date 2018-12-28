@@ -8,10 +8,11 @@ import java.util.List;
 
 public class JudgesPerJudgement extends AbstractFunction{
 
-    public JudgesPerJudgement(HashMap<String, Judgment> JudgmentHashMap,int num) {
+    JudgesPerJudgement(HashMap<String, Judgment> JudgmentHashMap,int num) {
         super(JudgmentHashMap, num);
     }
-    public double judgesPerJudgment(){
+
+    private double judgesPerJudgment(){
         Collection<Judgment> judgments = JudgmentHashMap.values();
         double judges = 0;
         for(Judgment judgment : judgments){

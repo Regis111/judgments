@@ -13,8 +13,8 @@ public class Main {
             HTMLParser htmlParser = new HTMLParser();
             JSONParser jsonParser = new JSONParser();
 
-            ArrayList<String> content = jsonFileOpener.getFiles("C:\\JSON");
-            ArrayList<String> content1 = htmlFileOpener.getFilesContent("C:\\HTML");
+            ArrayList<String> content = jsonFileOpener.getFiles("JSON");
+            ArrayList<String> content1 = htmlFileOpener.getFilesContent("HTML");
 
             ArrayList<Judgment> judgments = htmlParser.parseFiles(content1);
 

@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Judge extends AbstractFunction{
-    public Judge(HashMap<String, Judgment> JudgmentHashMap, int num) {
+    Judge(HashMap<String, Judgment> JudgmentHashMap, int num) {
         super(JudgmentHashMap, num);
     }
 

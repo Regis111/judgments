@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class Judges extends AbstractFunction {
 
-    public Judges(HashMap<String, Judgment> JudgmentHashMap, int num) {
+    Judges(HashMap<String, Judgment> JudgmentHashMap, int num) {
         super(JudgmentHashMap, num);
     }
 

@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class Courts extends AbstractFunction{
 
-    public Courts(HashMap<String, Judgment> JudgmentHashMap, int num) {
+    Courts(HashMap<String, Judgment> JudgmentHashMap, int num) {
         super(JudgmentHashMap, num);
     }
 
