@@ -11,14 +11,16 @@ import java.util.Vector;
 
 public class Terminal extends JFrame {
 
-    private Vector v = new Vector();
-    private JTextArea area;
+    private final Vector<String> v = new Vector<>();
+    private final JTextArea area;
+    private final String path;
     private int pos = 0;
 
-    public Terminal(HashMap<String, Judgment> map,String path) {
+    public Terminal(HashMap<String, Judgment> map, String path) {
         setTitle("Judgment Database");
         setSize(800, 500);
         JPanel j = new JPanel();
+        this.path = path;
         j.setLayout(new GridLayout(1, 1));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         area = new JTextArea("");
@@ -33,62 +35,62 @@ public class Terminal extends JFrame {
             @Override
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 deleteTextInFile(path);
-                area(evt,invoker);
-            }
-            private void area(KeyEvent evt,CommandInvoker invoker) {
-                int keyCode = evt.getKeyCode();
-                if(keyCode == 8) { // przycisk Backspace
-                    try{
-                        int caretOffset = area.getCaretPosition();
-                        int lineNumber = area.getLineOfOffset(caretOffset);
-                        if(area.getLineStartOffset(lineNumber) == area.getCaretPosition()){
-                            evt.consume();
-                        }
-                    }catch(BadLocationException ex){
-                        ex.printStackTrace();
-                    }
-                }else if (keyCode == 38) { // przycisk górnej strzałki
-                    try {
-                        if(pos >= 0 && pos <= v.size() - 1){
-                            pos++;
-                            String store = (String) v.get(v.size() - pos);
-                            replacer(store);
-                            evt.consume();
-                        }
-                        else if(pos == v.size()){
-                            evt.consume();
-                        }
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-                } else if (keyCode == 40) { // przycisk dolnej strzałki
-                    if(pos >= 2 && pos <= v.size() + 1){
-                        pos--;
-                        String store = (String) v.get(v.size() - pos);
-                        replacer(store);
-                        evt.consume();
-                    }
-                    else if (pos == 1){
-                        replacer("");
-                        pos--;
-                    }
-                } else if (keyCode == 10){ // przycisk Enter
-                    try{
-                        int caretOffset = area.getCaretPosition();
-                        int lineNumber = area.getLineOfOffset(caretOffset);
-                        int endOffset = area.getLineEndOffset(lineNumber);
-                        area.setCaretPosition(endOffset);
-                        v.add(linetext(map,path,invoker));
-                    }catch(BadLocationException ex){
-                        ex.printStackTrace();
-                    }
-                }
+                area(evt, invoker);
             }
         });
         j.add(area);
         j.add(new JScrollPane(area));
         add(j);
         setVisible(true);
+    }
+    private void area(KeyEvent evt,CommandInvoker invoker) {
+        int keyCode = evt.getKeyCode();
+        if(keyCode == 8) { // przycisk Backspace
+            try{
+                int caretOffset = area.getCaretPosition();
+                int lineNumber = area.getLineOfOffset(caretOffset);
+                if(area.getLineStartOffset(lineNumber) == area.getCaretPosition()){
+                    evt.consume();
+                }
+            }catch(BadLocationException ex){
+                ex.printStackTrace();
+            }
+        }else if (keyCode == 38) { // przycisk górnej strzałki
+            try {
+                if(pos >= 0 && pos <= v.size() - 1){
+                    pos++;
+                    String store = v.get(v.size() - pos);
+                    replacer(store);
+                    evt.consume();
+                }
+                else if(pos == v.size()){
+                    evt.consume();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } else if (keyCode == 40) { // przycisk dolnej strzałki
+            if(pos >= 2 && pos <= v.size() + 1){
+                pos--;
+                String store = v.get(v.size() - pos);
+                replacer(store);
+                evt.consume();
+            }
+            else if (pos == 1){
+                replacer("");
+                pos--;
+            }
+        } else if (keyCode == 10){ // przycisk Enter
+            try{
+                int caretOffset = area.getCaretPosition();
+                int lineNumber = area.getLineOfOffset(caretOffset);
+                int endOffset = area.getLineEndOffset(lineNumber);
+                area.setCaretPosition(endOffset);
+                v.add(linetext(path, invoker));
+            }catch(BadLocationException ex){
+                ex.printStackTrace();
+            }
+        }
     }
     /*
     odpowiada za zamienianie tekstu komendy na tekst komend znajdujących się w wektorze
@@ -107,9 +109,9 @@ public class Terminal extends JFrame {
     /*
     odpowiada za wyświetlenie rezultatu komendy,
      */
-    private String linetext(HashMap<String, Judgment> map, String path,CommandInvoker invoker) {
-        String text = null;
-        String result = null;
+    private String linetext(String path,CommandInvoker invoker) {
+        String text = "";
+        String result = "";
         try {
             int offset = area.getLineOfOffset(area.getCaretPosition());
             int start = area.getLineStartOffset(offset);
@@ -117,9 +119,9 @@ public class Terminal extends JFrame {
             text = area.getText(start, (end - start));
             result = invoker.invoke(text);
             area.append("\n" + result);
-            } catch (Exception e){
-                e.printStackTrace();
-            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
             writeToFile(path,text,result);
         return text;
     }
