@@ -5,14 +5,11 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import static judgments.Attributes.CourtType.LEADING_ADMINISTRATIVE;
-import static judgments.Attributes.CourtType.PROVINCIAL_ADMINISTRATIVE;
-import static org.jsoup.Jsoup.parse;
 
 public class HTMLParser {
 

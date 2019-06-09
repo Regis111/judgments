@@ -25,11 +25,7 @@ public class Main {
             map3.putAll(map1);
             map3.putAll(map2);
 
-            java.awt.EventQueue.invokeLater(new Runnable() {
-                public void run() {
-                    new Terminal(map3,args[0]);
-                }
-            });
+            java.awt.EventQueue.invokeLater(() -> new judgments.Terminal(map3,args[0]));
         }catch (IOException e){
             e.printStackTrace();
         }

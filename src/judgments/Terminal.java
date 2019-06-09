@@ -1,12 +1,13 @@
 package judgments;
 import judgments.Functions.CommandInvoker;
+
+import javax.swing.*;
+import javax.swing.text.BadLocationException;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Vector;
-import javax.swing.*;
-import javax.swing.text.BadLocationException;
 
 public class Terminal extends JFrame {
 
