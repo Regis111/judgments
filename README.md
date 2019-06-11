@@ -1,5 +1,5 @@
 # Judgments_Project
-Project accomplished during OOP course
+Project accomplished during OOP course, parses JSON and HTML files and sets local database of judgment objects
 
 # API
 http://orzeczenia.nsa.gov.pl/cbo/query
