@@ -1,6 +1,6 @@
 package judgments.Functions;
 
-import judgments.Attributes.CourtType;
+import judgments.Model.CourtType;
 import judgments.Judgment;
 
 import java.util.Collection;

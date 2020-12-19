@@ -1,7 +1,5 @@
 package judgments.Functions;
 
-import judgments.Attributes.CourtType;
-import judgments.Attributes.PersonnelType;
 import judgments.Judgment;
 
 import java.util.Collection;

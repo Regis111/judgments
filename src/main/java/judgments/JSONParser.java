@@ -3,7 +3,7 @@ package judgments;
 import java.lang.reflect.Type;
 import java.util.*;
 
-import judgments.Attributes.CourtCase;
+import judgments.Model.CourtCase;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

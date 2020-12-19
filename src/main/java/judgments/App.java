@@ -1,9 +1,15 @@
 package judgments;
 
-import java.io.IOException;
-import java.util.*;
+import judgments.Functions.CommandInvoker;
+import judgments.View.TerminalArea;
+import judgments.View.TerminalWindow;
 
-public class Main {
+import java.awt.EventQueue;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class App {
 
     public static void main(String[] args){
         try{
@@ -25,7 +31,10 @@ public class Main {
             map3.putAll(map1);
             map3.putAll(map2);
 
-            java.awt.EventQueue.invokeLater(() -> new judgments.Terminal(map3,args[0]));
+            CommandInvoker commandInvoker = new CommandInvoker(map3);
+            TerminalArea terminalArea = new TerminalArea(commandInvoker);
+
+            EventQueue.invokeLater(() -> new TerminalWindow(terminalArea));
         }catch (IOException e){
             e.printStackTrace();
         }

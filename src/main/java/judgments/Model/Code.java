@@ -1,4 +1,4 @@
-package judgments.Attributes;
+package judgments.Model;
 
 public enum Code {
     COMMON_COURT,

@@ -1,6 +1,6 @@
 package judgments.Functions;
 
-import judgments.Attributes.ReferencedRegulation;
+import judgments.Model.ReferencedRegulation;
 import judgments.Judgment;
 
 import java.util.*;

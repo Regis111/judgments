@@ -1,6 +1,6 @@
 package judgments;
 
-import judgments.Attributes.*;
+import judgments.Model.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

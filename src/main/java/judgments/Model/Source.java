@@ -1,4 +1,4 @@
-package judgments.Attributes;
+package judgments.Model;
 
 import java.net.URL;
 

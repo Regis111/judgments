@@ -1,6 +1,6 @@
 package judgments.Functions;
 
-import judgments.Attributes.Judge;
+import judgments.Model.Judge;
 import judgments.Judgment;
 
 import java.util.*;
