@@ -1,6 +1,5 @@
-package judgments;
+package judgments.Model;
 
-import judgments.Model.*;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;

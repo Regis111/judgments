@@ -1,6 +1,6 @@
 package judgments.Functions;
 
-import judgments.Judgment;
+import judgments.Model.Judgment;
 
 import java.util.Collection;
 import java.util.HashMap;

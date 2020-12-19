@@ -1,7 +1,7 @@
 package judgments.Functions;
 
 import judgments.Model.CourtType;
-import judgments.Judgment;
+import judgments.Model.Judgment;
 
 import java.util.Collection;
 import java.util.HashMap;

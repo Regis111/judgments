@@ -1,7 +1,7 @@
 package judgments.Functions;
 
 import judgments.Model.Judge;
-import judgments.Judgment;
+import judgments.Model.Judgment;
 
 import java.util.*;
 import java.util.stream.Collectors;

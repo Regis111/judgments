@@ -1,12 +1,10 @@
 package judgments.Functions;
 
-import judgments.Judgment;
+import judgments.Model.Judgment;
 //import sun.audio.AudioPlayer;
 //import sun.audio.AudioStream;
 //import sun.security.krb5.internal.crypto.Des;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.List;
 
