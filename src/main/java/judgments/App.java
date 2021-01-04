@@ -1,9 +1,6 @@
 package judgments;
 
-import judgments.Functions.CommandInvoker;
-import judgments.Model.Judgment;
-import judgments.View.TerminalArea;
-import judgments.View.TerminalWindow;
+import judgments.Attributes.Judgment;
 
 import java.awt.EventQueue;
 import java.io.IOException;
@@ -16,7 +13,9 @@ public class App {
         HashMap<String, Judgment> map = new HashMap<>();
         map.putAll(jsonJudgments());
         map.putAll(htmlJudgments());
-        EventQueue.invokeLater(() -> new TerminalWindow(new TerminalArea(new CommandInvoker(map))));
+        Model model = new Model(map);
+        Controller controller = new Controller(model);
+        EventQueue.invokeLater(controller::getWindow);
     }
 
     static HashMap<String, Judgment> jsonJudgments() throws IOException {

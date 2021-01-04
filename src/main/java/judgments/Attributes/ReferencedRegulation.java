@@ -1,4 +1,4 @@
-package judgments.Model;
+package judgments.Attributes;
 
 public class ReferencedRegulation {
 

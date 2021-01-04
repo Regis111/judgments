@@ -1,4 +1,4 @@
-package judgments.View;
+package judgments;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

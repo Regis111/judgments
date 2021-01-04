@@ -1,4 +1,4 @@
-package judgments.Model;
+package judgments.Attributes;
 
 import java.util.List;
 import java.util.Objects;

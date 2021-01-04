@@ -3,10 +3,10 @@ package judgments;
 import java.lang.reflect.Type;
 import java.util.*;
 
-import judgments.Model.CourtCase;
+import judgments.Attributes.CourtCase;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import judgments.Model.Judgment;
+import judgments.Attributes.Judgment;
 
 
 public class JSONParser {

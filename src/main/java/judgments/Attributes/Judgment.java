@@ -1,4 +1,4 @@
-package judgments.Model;
+package judgments.Attributes;
 
 import com.google.gson.annotations.SerializedName;
 

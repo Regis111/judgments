@@ -1,6 +1,7 @@
 package judgments;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -23,7 +24,7 @@ public class FileOpener {
         ArrayList<String> fileContent = new ArrayList<>();
         ArrayList<Path> paths = getJsonList(DirPath);
         for (Path path : paths){
-            String file = new String(Files.readAllBytes(path),"UTF-8");
+            String file = new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
             file = removeMetaData(file);
             fileContent.add(file);
         }
