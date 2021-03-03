@@ -1,6 +1,6 @@
 package judgments;
 
-import judgments.Attributes.Judgment;
+import judgments.ApiModel.Judgment;
 
 import java.awt.EventQueue;
 import java.io.IOException;

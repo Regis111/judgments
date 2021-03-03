@@ -1,4 +1,4 @@
-package judgments.Attributes;
+package judgments.ApiModel.Attributes;
 
 public enum SpecialRole {
     PRESIDING_JUDGE,

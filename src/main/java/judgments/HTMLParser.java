@@ -1,6 +1,7 @@
 package judgments;
 
-import judgments.Attributes.*;
+import judgments.ApiModel.Attributes.*;
+import judgments.ApiModel.Judgment;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -29,7 +30,7 @@ public class HTMLParser {
     parsuje uzasadnienie
      */
     private String  textContent(Elements elements){
-        String result = new String();
+        String result = "";
         for(Element element : elements){
             if(element.text().contains("Uzasadnienie")){
                 result =  element.text().substring(13);
@@ -61,7 +62,7 @@ public class HTMLParser {
     parsuje imię i nazwisko sędziego z tekstu html
      */
     private String name(String string){
-        return string.replaceFirst(" \\/(.*?)\\/","");
+        return string.replaceFirst(" /(.*?)/","");
     }
     /*
     parsuje role sędziego z tekstu html
@@ -108,7 +109,7 @@ public class HTMLParser {
      */
     private Source source(Elements elements){
         Source source = new Source();
-        String date = new String();
+        String date = "";
         for(Element element : elements){
             if(element.text().contains("Data orzeczenia")){
                 date = element.select("td.info-list-value").get(0).text().substring(0,10);
@@ -156,7 +157,7 @@ public class HTMLParser {
     /*
     parsuje wszystkie pliki html
      */
-    public ArrayList<Judgment> parseFiles(ArrayList<String> fileContent) throws IOException {
+    public ArrayList<Judgment> parseFiles(ArrayList<String> fileContent) {
         ArrayList<Judgment> judgments = new ArrayList<>();
         for (String file : fileContent){
             Judgment judgment = parseFile(file);

@@ -1,9 +1,7 @@
 package judgments;
 
 import org.jsoup.Jsoup;
-
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -29,7 +27,7 @@ public class HTMLFileOpener {
             for(Path path1 : paths1){
                 ArrayList<Path> paths2 = getFilesPaths(path1.toString());
                 for(Path path2 : paths2){
-                    String fileContent = new String(Files.readAllBytes(path2), StandardCharsets.UTF_8);
+                    String fileContent = Files.readString(path2);
                     fileContent = Jsoup.parse(fileContent,"UTF-8").body().toString();
                     filesContent.add(fileContent);
                 }

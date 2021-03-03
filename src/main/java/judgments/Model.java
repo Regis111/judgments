@@ -1,6 +1,7 @@
 package judgments;
 
-import judgments.Attributes.*;
+import judgments.ApiModel.Attributes.*;
+import judgments.ApiModel.Judgment;
 
 import java.util.*;
 import java.util.stream.Collectors;

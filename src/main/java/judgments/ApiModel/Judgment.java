@@ -1,6 +1,7 @@
-package judgments.Attributes;
+package judgments.ApiModel;
 
 import com.google.gson.annotations.SerializedName;
+import judgments.ApiModel.Attributes.*;
 
 import java.util.List;
 
