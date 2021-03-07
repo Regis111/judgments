@@ -7,10 +7,15 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Model {
-    private HashMap<String, Judgment> judgments;
+    private final HashMap<String, Judgment> judgments;
 
     public Model(HashMap<String, Judgment> judgments) {
         this.judgments = judgments;
+    }
+
+    public void addJudgments(List<Judgment> judgmentList) {
+        HashMap<String, Judgment> judgmentHashMap = Utils.parseToMap(judgmentList);
+        this.judgments.putAll(judgmentHashMap);
     }
 
     public Map<Integer, Long> monthDistribution() {

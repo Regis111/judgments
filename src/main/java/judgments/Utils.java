@@ -9,21 +9,20 @@ import judgments.ApiModel.Judgment;
 import judgments.ApiModel.JudgmentsResponse;
 
 
-public class JSONParser {
-    public static List<Judgment> parse(String json){
+public class Utils {
+    public static List<Judgment> parseJson(String json){
         return new Gson().fromJson(json, JudgmentsResponse.class).getJudgments();
     }
 
-    public List<Judgment> parseFiles(ArrayList<String> filesContents) {
+    public static List<Judgment> parseFiles(ArrayList<String> filesContents) {
         return filesContents.stream()
-                .flatMap(file -> parse(file).stream())
+                .flatMap(file -> parseJson(file).stream())
                 .collect(Collectors.toList());
     }
 
-    public HashMap<String,Judgment> parseToMap(ArrayList<String> filesContents){
+    public static HashMap<String,Judgment> parseToMap(List<Judgment> judgmentList) {
         HashMap<String,Judgment> map = new HashMap<>();
-        List<Judgment> judgments = parseFiles(filesContents);
-        for(Judgment Judgment: judgments) {
+        for(Judgment Judgment: judgmentList) {
             for(CourtCase courtCase : Judgment.getCourtCases()) {
                 map.put(courtCase.getCaseNumber(), Judgment);
             }

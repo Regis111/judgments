@@ -50,6 +50,6 @@ public class ApiDownloader {
         URI uri = this.createUri(from, to);
         HttpRequest request = this.createRequest(uri);
         HttpResponse<String> httpResponse = this.client.send(request, HttpResponse.BodyHandlers.ofString());
-        return JSONParser.parse(httpResponse.body());
+        return Utils.parseJson(httpResponse.body());
     }
 }

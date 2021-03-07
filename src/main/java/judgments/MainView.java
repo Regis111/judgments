@@ -1,22 +1,23 @@
 package judgments;
 
+import javax.swing.*;
 import javax.swing.text.BadLocationException;
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Optional;
 import java.util.logging.Logger;
 
-public class View {
+public class MainView extends JFrame {
     private static final Logger logger =
-            Logger.getLogger(View.class.getName());
+            Logger.getLogger(MainView.class.getName());
     private final TerminalArea area;
-    private final TerminalWindow window;
     private final Controller controller;
     private final CommandHistory commandHistory;
 
-    public View(Controller controller, CommandHistory commandHistory) {
+    public MainView(Controller controller, CommandHistory commandHistory) {
         this.area = new TerminalArea();
-        this.window = new TerminalWindow(this.area);
         this.controller = controller;
         this.commandHistory = commandHistory;
         this.area.addKeyListener(new KeyAdapter() {
@@ -41,10 +42,44 @@ public class View {
                 }
             }
         });
+        setUpFrame();
     }
 
-    public TerminalWindow getWindow() {
-        return window;
+    private void setUpFrame() {
+        setTitle("Judgment Terminal");
+        setSize(800, 500);
+        setLocationRelativeTo(null);
+
+        JMenuBar menuBar = createBar();
+        JPanel jPanel = new JPanel(new BorderLayout());
+        jPanel.add(area);
+        jPanel.add(new JScrollPane(area));
+
+        setContentPane(jPanel);
+        setJMenuBar(menuBar);
+        setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+    }
+
+    private JMenuBar createBar() {
+        JMenuBar menuBar = new JMenuBar();
+        JMenu menu = new JMenu("Menu");
+        JMenuItem menuItem = createImportMenuItem();
+        menu.add(menuItem);
+        menuBar.add(menu);
+        return menuBar;
+    }
+
+    private JMenuItem createImportMenuItem() {
+        JMenuItem menuItem = new JMenuItem("Import judgments");
+        menuItem.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                controller.openFormView();
+            }
+        });
+        return menuItem;
     }
 
     private void handleEnter() {

@@ -9,6 +9,8 @@ apply plugin: "application"
 group 'judgments'
 version '1.0-SNAPSHOT'
 
+mainClassName = "judgments.App"
+
 repositories {
     mavenCentral()
 }
@@ -20,6 +22,7 @@ dependencies {
     implementation group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.1.1'
     implementation group: 'io.github.hakky54', name: 'sslcontext-kickstart', version: '6.3.0'
     implementation group: 'io.github.hakky54', name: 'sslcontext-kickstart-for-pem', version: '6.3.0'
+    implementation group: 'com.github.lgooddatepicker', name: 'LGoodDatePicker', version: '11.2.0'
     implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
     testImplementation group: 'junit', name: 'junit', version: '4.13.1'
 }
