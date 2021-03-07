@@ -1,4 +1,5 @@
 package judgments;
+
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 
@@ -19,7 +20,7 @@ public class DateRangeFormView extends JFrame {
 
     private final Controller controller;
 
-    private static final LocalDate lowerLimit = LocalDate.of(2012, 1,1);
+    private static final LocalDate lowerLimit = LocalDate.of(2012, 1, 1);
     private static final LocalDate upperLimit = LocalDate.now();
 
 
@@ -45,9 +46,9 @@ public class DateRangeFormView extends JFrame {
         JPanel datePickerPane = new JPanel();
         datePickerPane.setLayout(new BoxLayout(datePickerPane, BoxLayout.PAGE_AXIS));
         datePickerPane.add(startDatePicker);
-        datePickerPane.add(Box.createRigidArea(new Dimension(5,5)));
+        datePickerPane.add(Box.createRigidArea(new Dimension(5, 5)));
         datePickerPane.add(endDatePicker);
-        datePickerPane.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        datePickerPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         //import button
         JButton importButton = new JButton("Import");
@@ -59,10 +60,10 @@ public class DateRangeFormView extends JFrame {
         // buttons
         JPanel buttonPane = new JPanel();
         buttonPane.setLayout(new BoxLayout(buttonPane, BoxLayout.LINE_AXIS));
-        buttonPane.setBorder(BorderFactory.createEmptyBorder(0,10,10,10));
+        buttonPane.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 10));
         buttonPane.add(Box.createHorizontalGlue());
         buttonPane.add(cancelButton);
-        buttonPane.add(Box.createRigidArea(new Dimension(5,5)));
+        buttonPane.add(Box.createRigidArea(new Dimension(5, 5)));
         buttonPane.add(importButton);
 
         Container contentPane = getContentPane();

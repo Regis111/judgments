@@ -1,6 +1,9 @@
 package judgments;
 
-import judgments.ApiModel.Attributes.*;
+import judgments.ApiModel.Attributes.CourtType;
+import judgments.ApiModel.Attributes.Judge;
+import judgments.ApiModel.Attributes.ReferencedRegulation;
+import judgments.ApiModel.Attributes.Source;
 import judgments.ApiModel.Judgment;
 
 import java.util.*;
@@ -24,7 +27,7 @@ public class Model {
                 .map(Judgment::getSource)
                 .map(Source::getPublicationDate)
                 .filter(str -> !str.isEmpty())
-                .collect(Collectors.groupingBy(date -> Integer.parseInt(date.substring(5,7)), Collectors.counting()));
+                .collect(Collectors.groupingBy(date -> Integer.parseInt(date.substring(5, 7)), Collectors.counting()));
     }
 
     public List<String> top10laws() {
@@ -41,9 +44,9 @@ public class Model {
                 .collect(Collectors.toList());
     }
 
-    public String getMetrics(List<String> signatures){
+    public String getMetrics(List<String> signatures) {
         StringBuilder result = new StringBuilder();
-        for(String signature : signatures){
+        for (String signature : signatures) {
             Judgment judgment = judgments.get(signature);
             result.append("sygnatura orzeczenia: " + signature + "\n");
             result.append("Data wydania orzeczenia: " + judgment.getSource().getPublicationDate() + "\n");
@@ -83,7 +86,7 @@ public class Model {
                 .collect(Collectors.toList());
     }
 
-    public long numberOfJudgmentsOfJudge(String judgeName){
+    public long numberOfJudgmentsOfJudge(String judgeName) {
         return judgments.values().stream().map(Judgment::getJudges)
                 .flatMap(List::stream)
                 .filter(judge -> judge.getName().equals(judgeName)).count();

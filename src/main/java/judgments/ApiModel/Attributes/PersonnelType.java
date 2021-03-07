@@ -10,8 +10,8 @@ public enum PersonnelType {
     ALL_CHAMBER,
     JOINED_CHAMBERS;
 
-    public String toString(){
-        switch(this){
+    public String toString() {
+        switch (this) {
             case ONE_PERSON:
                 return "skład jednoosobowy";
             case THREE_PERSON:

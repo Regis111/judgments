@@ -7,8 +7,8 @@ public enum JudgmentType {
     REGULATION,
     REASONS;
 
-    public String toString(){
-        switch (this){
+    public String toString() {
+        switch (this) {
             case DECISION:
                 return "Postanowienie";
             case RESOLUTION:

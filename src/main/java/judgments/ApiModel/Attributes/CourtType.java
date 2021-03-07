@@ -10,9 +10,8 @@ public enum CourtType {
     NATIONAL_APPEAL_CHAMBER;
 
 
-
-    public String toString(){
-        switch(this){
+    public String toString() {
+        switch (this) {
             case COMMON:
                 return "Sąd Powszechny";
             case SUPREME:

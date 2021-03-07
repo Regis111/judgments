@@ -44,7 +44,7 @@ public class Judge {
         return Objects.hash(name, function, specialRoles);
     }
 
-    public String toString(){
+    public String toString() {
         return getName();
     }
 }

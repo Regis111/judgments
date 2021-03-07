@@ -28,7 +28,7 @@ public class TerminalArea extends JTextArea {
             int start = getLineStartOffset(offset);
             int end = getLineEndOffset(offset);
             text = getText(start, (end - start));
-        } catch (BadLocationException e){
+        } catch (BadLocationException e) {
             e.printStackTrace();
         }
         return text;

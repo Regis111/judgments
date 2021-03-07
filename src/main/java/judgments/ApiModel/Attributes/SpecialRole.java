@@ -5,8 +5,8 @@ public enum SpecialRole {
     REPORTING_JUDGE,
     REASONS_FOR_JUDGMENT_AUTHOR;
 
-    public String toString(){
-        switch (this){
+    public String toString() {
+        switch (this) {
             case PRESIDING_JUDGE:
                 return "Przewodniczący Składu Sędziowskiego";
             case REPORTING_JUDGE:

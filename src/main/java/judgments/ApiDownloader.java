@@ -1,5 +1,9 @@
 package judgments;
 
+import judgments.ApiModel.Judgment;
+import nl.altindag.ssl.SSLFactory;
+import nl.altindag.ssl.util.PemUtils;
+
 import javax.net.ssl.X509ExtendedTrustManager;
 import javax.ws.rs.core.UriBuilder;
 import java.io.IOException;
@@ -9,10 +13,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.LocalDate;
 import java.util.List;
-
-import judgments.ApiModel.Judgment;
-import nl.altindag.ssl.SSLFactory;
-import nl.altindag.ssl.util.PemUtils;
 
 
 public class ApiDownloader {

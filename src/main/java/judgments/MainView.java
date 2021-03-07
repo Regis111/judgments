@@ -24,7 +24,7 @@ public class MainView extends JFrame {
             @Override
             public void keyPressed(KeyEvent keyEvent) {
                 int keyCode = keyEvent.getKeyCode();
-                switch(keyCode) {
+                switch (keyCode) {
                     case KeyEvent.VK_ENTER:
                         handleEnter();
                         break;
@@ -84,7 +84,7 @@ public class MainView extends JFrame {
 
     private void handleEnter() {
         logger.entering(getClass().getName(), "handleEnter");
-        try{
+        try {
             int caretOffset = area.getCaretPosition();
             int lineNumber = area.getLineOfOffset(caretOffset);
             int endOffset = area.getLineEndOffset(lineNumber);
@@ -93,20 +93,20 @@ public class MainView extends JFrame {
             commandHistory.addCommand(input);
             controller.invoke(input);
 
-        }catch(BadLocationException ex){
+        } catch (BadLocationException ex) {
             ex.printStackTrace();
         }
     }
 
     private void handleBackspace(KeyEvent keyEvent) {
         logger.entering(getClass().getName(), "handleBackspace");
-        try{
+        try {
             int caretOffset = area.getCaretPosition();
             int lineNumber = area.getLineOfOffset(caretOffset);
-            if(area.getLineStartOffset(lineNumber) == caretOffset){
+            if (area.getLineStartOffset(lineNumber) == caretOffset) {
                 keyEvent.consume();
             }
-        } catch(BadLocationException ex){
+        } catch (BadLocationException ex) {
             ex.printStackTrace();
         }
     }
@@ -124,6 +124,7 @@ public class MainView extends JFrame {
         command.ifPresent(this::replace);
         keyEvent.consume();
     }
+
     /*
     odpowiada za zamienianie tekstu komendy na tekst komend znajdujących się w wektorze
      */

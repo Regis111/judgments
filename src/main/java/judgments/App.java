@@ -2,13 +2,12 @@ package judgments;
 
 import judgments.ApiModel.Judgment;
 
-import java.awt.EventQueue;
 import java.io.IOException;
 import java.util.HashMap;
 
 public class App {
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         HashMap<String, Judgment> map = new HashMap<>();
 //        map.putAll(jsonJudgments());
 //        map.putAll(htmlJudgments());

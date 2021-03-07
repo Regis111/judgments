@@ -7,8 +7,8 @@ public enum Code {
     NATIONAL_APPEAL_CHAMBER;
 
 
-    public String toString(){
-        switch (this){
+    public String toString() {
+        switch (this) {
             case COMMON_COURT:
                 return "Sąd powszechny";
             case SUPREME_COURT:

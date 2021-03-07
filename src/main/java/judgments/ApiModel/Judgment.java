@@ -5,7 +5,7 @@ import judgments.ApiModel.Attributes.*;
 
 import java.util.List;
 
-public class Judgment{
+public class Judgment {
 
     private int id;
     private JudgmentType judgmentType;

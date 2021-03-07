@@ -19,10 +19,10 @@ public class CommandHistory {
     }
 
     public Optional<String> getNext() {
-        if(pos >= 2) {
+        if (pos >= 2) {
             pos--;
             return Optional.of(getCurrentPositionText());
-        } else if (pos == 1){
+        } else if (pos == 1) {
             pos--;
             return Optional.of("");
         } else {
@@ -31,7 +31,7 @@ public class CommandHistory {
     }
 
     public Optional<String> getPrevious() {
-        if(pos <= history.size() - 1){
+        if (pos <= history.size() - 1) {
             pos++;
             return Optional.of(getCurrentPositionText());
         } else {
